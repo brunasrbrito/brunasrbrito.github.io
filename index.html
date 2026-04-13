@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bruna Brito — Desenvolvedora Front-end</title>
+    <title>Bruna Brito — Desenvolvedora Web</title>
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -29,7 +29,6 @@
         margin: 0;
         padding: 0;
       }
-
       html {
         scroll-behavior: smooth;
       }
@@ -91,15 +90,11 @@
         padding: 0 24px 80px;
       }
 
+      /* HERO */
       header {
         padding: 100px 0 60px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: start;
-        gap: 32px;
         animation: fadeUp 0.8s ease both;
       }
-
       .hero-label {
         font-family: "DM Mono", monospace;
         font-size: 11px;
@@ -108,7 +103,6 @@
         color: var(--accent);
         margin-bottom: 12px;
       }
-
       h1 {
         font-family: "DM Serif Display", serif;
         font-size: clamp(2.8rem, 6vw, 4.2rem);
@@ -120,12 +114,11 @@
         font-style: italic;
         color: var(--accent);
       }
-
       .hero-sub {
         margin-top: 20px;
         color: var(--muted);
         font-size: 1.05rem;
-        max-width: 460px;
+        max-width: 520px;
       }
 
       .hero-badges {
@@ -184,20 +177,11 @@
         fill: currentColor;
       }
 
+      /* SECTIONS */
       section {
         margin-top: 64px;
         animation: fadeUp 0.8s ease both;
       }
-      section:nth-child(2) {
-        animation-delay: 0.1s;
-      }
-      section:nth-child(3) {
-        animation-delay: 0.2s;
-      }
-      section:nth-child(4) {
-        animation-delay: 0.3s;
-      }
-
       .section-label {
         font-family: "DM Mono", monospace;
         font-size: 10px;
@@ -216,45 +200,18 @@
         background: var(--border);
       }
 
-      h2 {
-        font-family: "DM Serif Display", serif;
-        font-size: 1.9rem;
-        letter-spacing: -0.01em;
-        color: #fff;
-        margin-bottom: 20px;
+      /* TECH */
+      .tech-group + .tech-group {
+        margin-top: 20px;
       }
-
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      @media (max-width: 600px) {
-        .about-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .about-item {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 16px 20px;
-        font-size: 0.9rem;
+      .tech-group-label {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
         color: var(--muted);
-        transition: border-color 0.2s;
+        margin-bottom: 12px;
+        text-transform: uppercase;
       }
-      .about-item:hover {
-        border-color: var(--accent);
-      }
-      .about-item span {
-        display: block;
-        color: var(--text);
-        font-weight: 500;
-        margin-top: 4px;
-      }
-
-      /* ── TECH ICONS ── */
       .tech-section img {
         border-radius: 12px;
         opacity: 0.88;
@@ -267,22 +224,327 @@
         transform: scale(1.04);
       }
 
-      .tech-group + .tech-group {
-        margin-top: 20px;
+      /* CAROUSEL SHARED */
+      .carousel-arrows {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 14px;
+        justify-content: flex-end;
       }
-      .tech-group-label {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-        letter-spacing: 0.1em;
+      .carr-btn {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
         color: var(--muted);
-        margin-bottom: 12px;
-        text-transform: uppercase;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .carr-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
       }
 
+      .carousel {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 12px;
+        cursor: grab;
+      }
+      .carousel:active {
+        cursor: grabbing;
+      }
+      .carousel::-webkit-scrollbar {
+        height: 4px;
+      }
+      .carousel::-webkit-scrollbar-track {
+        background: var(--surface);
+        border-radius: 99px;
+      }
+      .carousel::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 99px;
+      }
+      .carousel::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+      }
+
+      /* EXPERIENCE CAROUSEL */
+      .exp-card {
+        min-width: 340px;
+        max-width: 340px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px 24px;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .exp-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 20px var(--glow);
+      }
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .exp-role {
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.97rem;
+      }
+      .exp-company {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        color: var(--accent);
+        margin-top: 3px;
+      }
+      .exp-meta {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--muted);
+        text-align: right;
+        line-height: 1.6;
+        flex-shrink: 0;
+      }
+      .exp-bullets {
+        margin-top: 14px;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .exp-bullets li {
+        font-size: 0.875rem;
+        color: var(--muted);
+        padding-left: 16px;
+        position: relative;
+      }
+      .exp-bullets li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 10px;
+        top: 3px;
+      }
+
+      /* PROJECTS CAROUSEL */
+      .proj-card {
+        min-width: 250px;
+        max-width: 250px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .proj-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 20px var(--glow);
+      }
+      .proj-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: rgba(230, 57, 70, 0.1);
+        border: 1px solid rgba(230, 57, 70, 0.2);
+        padding: 2px 8px;
+        border-radius: 999px;
+        align-self: flex-start;
+      }
+      .proj-name {
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.92rem;
+        line-height: 1.3;
+      }
+      .proj-company {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--accent2);
+      }
+      .proj-desc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.5;
+        flex: 1;
+      }
+
+      .carousel-notice {
+        margin-top: 16px;
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--muted);
+        letter-spacing: 0.03em;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        line-height: 1.6;
+      }
+      .carousel-notice::before {
+        content: "ℹ";
+        color: var(--accent2);
+        font-size: 13px;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      /* ESTUDOS */
+      .study-card {
+        min-width: 260px;
+        max-width: 260px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .study-card:hover {
+        border-color: var(--accent2);
+        box-shadow: 0 0 20px rgba(244, 162, 97, 0.18);
+      }
+      .study-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent2);
+        background: rgba(244, 162, 97, 0.08);
+        border: 1px solid rgba(244, 162, 97, 0.2);
+        padding: 2px 8px;
+        border-radius: 999px;
+        align-self: flex-start;
+      }
+      .study-name {
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.92rem;
+        line-height: 1.3;
+      }
+      .study-desc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.5;
+        flex: 1;
+      }
+      .study-techs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .study-tech-pill {
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        padding: 2px 8px;
+        border-radius: 999px;
+      }
+      .study-link {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        color: var(--accent2);
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.04em;
+        margin-top: 4px;
+        transition: color 0.2s;
+      }
+      .study-link:hover {
+        color: var(--accent);
+      }
+      .study-link svg {
+        width: 12px;
+        height: 12px;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+
+      /* VOLUNTEER */
+      .volunteer-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px 24px;
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .volunteer-card:hover {
+        border-color: var(--accent2);
+        box-shadow: 0 0 20px rgba(244, 162, 97, 0.15);
+      }
+      .volunteer-icon {
+        font-size: 1.8rem;
+        flex-shrink: 0;
+      }
+      .volunteer-role {
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.97rem;
+      }
+      .volunteer-org {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        color: var(--accent2);
+        margin-top: 3px;
+      }
+      .volunteer-period {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      /* TIMELINE */
       .timeline {
         display: flex;
         flex-direction: column;
-        gap: 0;
         border-left: 1px solid var(--border);
         padding-left: 28px;
         margin-left: 8px;
@@ -314,7 +576,6 @@
         background: var(--accent2);
         border-color: var(--accent2);
       }
-
       .tl-degree {
         font-weight: 600;
         color: var(--text);
@@ -359,6 +620,7 @@
         border: 1px solid var(--border);
       }
 
+      /* CERT */
       .cert-card {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -391,6 +653,56 @@
         margin-top: 2px;
       }
 
+      /* LANGUAGE */
+      .lang-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .lang-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 20px var(--glow);
+      }
+      .lang-flag {
+        font-size: 2rem;
+        flex-shrink: 0;
+      }
+      .lang-name {
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.97rem;
+      }
+      .lang-level {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .lang-bar-wrap {
+        flex: 1;
+      }
+      .lang-bar-bg {
+        height: 4px;
+        background: var(--border);
+        border-radius: 99px;
+        margin-top: 10px;
+        overflow: hidden;
+      }
+      .lang-bar-fill {
+        height: 100%;
+        width: 55%;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        border-radius: 99px;
+      }
+
+      /* FOOTER */
       footer {
         margin-top: 80px;
         padding-top: 32px;
@@ -413,6 +725,24 @@
           transform: translateY(0);
         }
       }
+
+      @media (max-width: 600px) {
+        .proj-card {
+          min-width: 210px;
+          max-width: 210px;
+        }
+        .study-card {
+          min-width: 220px;
+          max-width: 220px;
+        }
+        .exp-card {
+          min-width: 280px;
+          max-width: 280px;
+        }
+        .exp-meta {
+          text-align: left;
+        }
+      }
     </style>
   </head>
   <body>
@@ -421,84 +751,61 @@
     <div class="blob blob-3"></div>
 
     <div class="wrapper">
+      <!-- HERO -->
       <header>
-        <div>
-          <p class="hero-label">// portfólio pessoal</p>
-          <h1>Bruna <em>Brito</em></h1>
-          <p class="hero-sub">
-            Desenvolvedora Front-end criando interfaces modernas, responsivas e
-            intuitivas.
-          </p>
-
-          <div class="hero-badges">
-            <span class="badge">Front-end</span>
-            <span class="badge">Web Development</span>
-            <span class="badge">UX / UI</span>
-            <span class="badge">MBA · Dados & IA</span>
-          </div>
-
-          <div class="contact-row">
-            <a
-              class="contact-link"
-              href="https://www.linkedin.com/in/brunasrbrito/"
-              target="_blank"
-            >
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                />
-              </svg>
-              LinkedIn
-            </a>
-            <a
-              class="contact-link"
-              href="/cdn-cgi/l/email-protection#3f5d4d4a515e4c4d5d4d564b507f58525e5653115c5052"
-            >
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
-                />
-              </svg>
-              E-mail
-            </a>
-            <a
-              class="contact-link"
-              href="https://github.com/brunasrbrito"
-              target="_blank"
-            >
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                />
-              </svg>
-              GitHub
-            </a>
-          </div>
+        <h1>Bruna <em>Brito</em></h1>
+        <p class="hero-sub">
+          Desenvolvedora Web | Especialista em Front-end | UX/UI
+        </p>
+        <div class="hero-badges">
+          <span class="badge">Front-end</span>
+          <span class="badge">Web Development</span>
+          <span class="badge">UX / UI</span>
+          <span class="badge">MBA · Dados & IA</span>
+        </div>
+        <div class="contact-row">
+          <a
+            class="contact-link"
+            href="https://www.linkedin.com/in/brunasrbrito/"
+            target="_blank"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+            LinkedIn
+          </a>
+          <a class="contact-link" href="mailto:brunasrbrito@gmail.com">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+              />
+            </svg>
+            E-mail
+          </a>
+          <a
+            class="contact-link"
+            href="https://github.com/brunasrbrito"
+            target="_blank"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a class="contact-link" href="assets/curriculo.pdf" target="_blank">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 3h8v1.5H8V15zm0 3h5v1.5H8V18z"
+              />
+            </svg>
+            Visualizar currículo
+          </a>
         </div>
       </header>
-
-      <!-- SOBRE -->
-      <section>
-        <p class="section-label">sobre mim</p>
-        <div class="about-grid">
-          <div class="about-item">
-            🎯 Foco principal<span>Desenvolvimento Front-end</span>
-          </div>
-          <div class="about-item">
-            💡 Experiência<span>Sistemas web modernos</span>
-          </div>
-          <div class="about-item">
-            📚 Em constante evolução<span
-              >Boas práticas & novas tecnologias</span
-            >
-          </div>
-          <div class="about-item">
-            🔍 Interesse<span
-              >Experiências digitais eficientes e bem estruturadas</span
-            >
-          </div>
-        </div>
-      </section>
 
       <!-- STACK -->
       <section class="tech-section">
@@ -519,6 +826,438 @@
         </div>
       </section>
 
+      <!-- EXPERIÊNCIA (carousel) -->
+      <section>
+        <p class="section-label">experiência profissional</p>
+        <div class="carousel-arrows">
+          <button class="carr-btn" id="exp-prev" aria-label="Anterior">
+            &#8592;
+          </button>
+          <button class="carr-btn" id="exp-next" aria-label="Próximo">
+            &#8594;
+          </button>
+        </div>
+        <div class="carousel" id="exp-carousel">
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Analista de Sistemas III</div>
+                <div class="exp-company">Applied Scientific Methods (ASM)</div>
+              </div>
+              <div class="exp-meta">06/2025 – Atual<br />Remoto</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Desenvolvimento, manutenção e implementação de melhorias de
+                aplicações web (HTML, SCSS, JavaScript, Bootstrap, Materialize)
+              </li>
+              <li>Consumo e integração com APIs REST</li>
+              <li>
+                Criação e visualizações de tabelas dinamicas com DataTables
+              </li>
+              <li>Criação de gráficos e visualizações com Google Charts</li>
+              <li>Apoio ao backend com PHP (Laravel)</li>
+              <li>
+                Manutenção e criação do tema do portal institucional (Wordpress)
+              </li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Analista de Sistemas II</div>
+                <div class="exp-company">Applied Scientific Methods (ASM)</div>
+              </div>
+              <div class="exp-meta">05/2017 – 06/2025<br />Remoto</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Desenvolvimento de interfaces web responsivas (HTML, Sass,
+                JavaScript)
+              </li>
+              <li>Integração com APIs REST</li>
+              <li>Manutenção e evolução de sistemas internos</li>
+              <li>Criação de gráficos e visualizações com Google Charts</li>
+              <li>Atuação com PHP (Laravel) e WordPress em projetos web</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">
+                  Desenvolvedora Front-End | Analista de Sistemas
+                </div>
+                <div class="exp-company">BritoTI</div>
+              </div>
+              <div class="exp-meta">02/2017 – 03/2019<br />Remoto</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Criação de interfaces modernas e responsivas</li>
+              <li>Desenvolvimento com HTML, Sass, JavaScript</li>
+              <li>
+                Integração com APIs e criação de gráficos com Google Charts
+              </li>
+              <li>Projetos utilizando PHP (Laravel) e WordPress</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Analista de Sistemas</div>
+                <div class="exp-company">Applied Scientific Methods (ASM)</div>
+              </div>
+              <div class="exp-meta">
+                11/2016 – 01/2017<br />São José dos Campos – SP
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Desenvolvimento de interfaces para sistemas web com HTML, Sass e
+                JavaScript
+              </li>
+              <li>Desenvolvimento e manutenção de aplicações web</li>
+              <li>Consumo e integração com APIs REST</li>
+              <li>Criação de gráficos com Google Charts</li>
+              <li>Apoio em backend com PHP (Laravel) e WordPress</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Web Designer</div>
+                <div class="exp-company">Fundação João Paulo II (FJPII)</div>
+              </div>
+              <div class="exp-meta">
+                05/2016 – 10/2016<br />Cachoeira Paulista – SP
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Desenvolvimento de interfaces com HTML, Less e JavaScript</li>
+              <li>Implementação de layouts e integração com backend</li>
+              <li>Foco em usabilidade e experiência do usuário</li>
+              <li>Vivência com CakePHP e WordPress</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">
+                  Desenvolvedora Front-End | Analista de Sistemas
+                </div>
+                <div class="exp-company">Blutee</div>
+              </div>
+              <div class="exp-meta">05/2015 – 08/2016<br />Remoto</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Desenvolvimento de interfaces web com HTML, CSS e JavaScript
+              </li>
+              <li>Implementação de layouts e integração com backend</li>
+              <li>Atuação com PHP (Laravel) e WordPress</li>
+              <li>Contato direto com clientes e levantamento de requisitos</li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Programadora de Interface</div>
+                <div class="exp-company">EXLA</div>
+              </div>
+              <div class="exp-meta">
+                08/2012 – 12/2015<br />Guaratinguetá – SP
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Desenvolvimento de interfaces para sistemas web com HTML, CSS e
+                JavaScript
+              </li>
+              <li>
+                Utilização de Kendo UI para componentes e interfaces ricas
+              </li>
+              <li>
+                Desenvolvimento com jQuery e manipulação dinâmica de conteúdo
+              </li>
+            </ul>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <div class="exp-role">Estágio em Informática</div>
+                <div class="exp-company">
+                  INPE — Instituto Nacional de Pesquisas Espaciais
+                </div>
+              </div>
+              <div class="exp-meta">
+                08/2010 – 03/2011<br />Cachoeira Paulista – SP
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Suporte técnico e apoio em atividades de TI</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJETOS -->
+      <section>
+        <p class="section-label">projetos</p>
+        <div class="carousel-arrows">
+          <button class="carr-btn" id="proj-prev" aria-label="Anterior">
+            &#8592;
+          </button>
+          <button class="carr-btn" id="proj-next" aria-label="Próximo">
+            &#8594;
+          </button>
+        </div>
+        <div class="carousel" id="proj-carousel">
+          <div class="proj-card">
+            <span class="proj-tag">Sistema</span>
+            <div class="proj-name">GestaoSW</div>
+            <div class="proj-company">Autônomo</div>
+            <div class="proj-desc">
+              Sistema de gestão documental integrado ao controle de cursos e
+              treinamentos.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Sistema</span>
+            <div class="proj-name">Osys</div>
+            <div class="proj-company">Autônomo</div>
+            <div class="proj-desc">Sistema de gestão de ordem de serviços.</div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">GilsonTur</div>
+            <div class="proj-company">Autônomo</div>
+            <div class="proj-desc">
+              Website para agência de turismo com foco em apresentação de
+              destinos e captação de clientes.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">Penedo Riders</div>
+            <div class="proj-company">
+              BluTee — Soluções Web, Mobile e Visual
+            </div>
+            <div class="proj-desc">Website oficial do grupo Penedo Riders.</div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Evento</span>
+            <div class="proj-name">6º Encontro Internacional Penedo Riders</div>
+            <div class="proj-company">
+              BluTee — Soluções Web, Mobile e Visual
+            </div>
+            <div class="proj-desc">
+              Website do evento de encontro internacional.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Evento</span>
+            <div class="proj-name">7º Encontro Internacional Penedo Riders</div>
+            <div class="proj-company">
+              BluTee — Soluções Web, Mobile e Visual
+            </div>
+            <div class="proj-desc">
+              Website do evento de encontro internacional.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">Site da EXLA</div>
+            <div class="proj-company">EXLA — Software Estratégico</div>
+            <div class="proj-desc">Site institucional da empresa EXLA.</div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Sistema</span>
+            <div class="proj-name">Leasing</div>
+            <div class="proj-company">EXLA — Software Estratégico</div>
+            <div class="proj-desc">
+              Sistema de gestão de arrecadação de Leasing.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">CRM</span>
+            <div class="proj-name">CRM — Lance</div>
+            <div class="proj-company">EXLA — Software Estratégico</div>
+            <div class="proj-desc">
+              CRM feito sob medida para a empresa Lance.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Landing Page</span>
+            <div class="proj-name">Página de Reforma da EXLA</div>
+            <div class="proj-company">EXLA — Software Estratégico</div>
+            <div class="proj-desc">
+              Página em construção durante reforma do site.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">TCC</span>
+            <div class="proj-name">TCC — Auto Escola</div>
+            <div class="proj-company">
+              Centro Universitário Salesiano de São Paulo
+            </div>
+            <div class="proj-desc">
+              Sistema desktop para gerenciamento de auto escola utilizando o
+              Framework Hibernate.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Sistema Interno</span>
+            <div class="proj-name">
+              Gerenciamento de Movimentações Administrativas
+            </div>
+            <div class="proj-company">
+              INPE — Instituto Nacional de Pesquisas Espaciais
+            </div>
+            <div class="proj-desc">
+              Sistema interno para gerenciamento das movimentações ocorridas na
+              unidade.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Sistema</span>
+            <div class="proj-name">TOT — Administração Escolar</div>
+            <div class="proj-company">EXLA — Software Estratégico</div>
+            <div class="proj-desc">
+              Sistema de gestão da vida escolar do munícipe.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Mobile</span>
+            <div class="proj-name">TOT — Mobile</div>
+            <div class="proj-company">EXLA — Software Estratégico</div>
+            <div class="proj-desc">
+              Iniciação do projeto mobile para gestão da vida do munícipe.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">Blutee</div>
+            <div class="proj-company">
+              BluTee — Soluções Web, Mobile e Visual
+            </div>
+            <div class="proj-desc">Website institucional da Blutee.</div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">Hypne</div>
+            <div class="proj-company">Applied Scientific Methods</div>
+            <div class="proj-desc">
+              Alterações e melhorias no website do projeto.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">Macro Engenharia</div>
+            <div class="proj-company">Applied Scientific Methods</div>
+            <div class="proj-desc">
+              Website institucional da Macro Engenharia.
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">Safety World</div>
+            <div class="proj-company">
+              BluTee — Soluções Web, Mobile e Visual
+            </div>
+            <div class="proj-desc">Reformulação do website institucional.</div>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">Website do Artista</div>
+            <div class="proj-company">Fundação João Paulo II</div>
+            <div class="proj-desc">
+              Reformulação da página dos artistas da Canção Nova.
+            </div>
+          </div>
+        </div>
+        <div class="carousel-notice">
+          Alguns projetos não estão mais disponíveis online por terem sido
+          temporários, removidos pelos responsáveis ou por questões de
+          privacidade.
+        </div>
+      </section>
+
+      <!-- ESTUDOS -->
+      <section>
+        <p class="section-label">estudos</p>
+        <div class="carousel-arrows">
+          <button class="carr-btn" id="study-prev" aria-label="Anterior">
+            &#8592;
+          </button>
+          <button class="carr-btn" id="study-next" aria-label="Próximo">
+            &#8594;
+          </button>
+        </div>
+        <div class="carousel" id="study-carousel">
+          <div class="study-card">
+            <span class="study-tag">Sistema</span>
+            <div class="study-name">Sigma</div>
+            <div class="study-desc">Sistema de gerenciamento de madereira.</div>
+            <div class="study-techs">
+              <span class="study-tech-pill">Next.js</span>
+              <span class="study-tech-pill">NestJS</span>
+              <span class="study-tech-pill">MySQL</span>
+            </div>
+            <a
+              class="study-link"
+              href="https://github.com/brunasrbrito/sigma"
+              target="_blank"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
+              github.com/brunasrbrito/sigma
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- VOLUNTARIADO -->
+      <section>
+        <p class="section-label">voluntariado</p>
+        <div class="volunteer-card">
+          <div class="volunteer-icon">🤝</div>
+          <div>
+            <div class="volunteer-role">Auxiliar</div>
+            <div class="volunteer-org">
+              Conselho Municipal das Mulheres de Aparecida
+            </div>
+            <div class="volunteer-period">jun/2012 – dez/2012</div>
+          </div>
+        </div>
+      </section>
+
       <!-- FORMAÇÃO -->
       <section>
         <p class="section-label">formação acadêmica</p>
@@ -531,7 +1270,6 @@
             <div class="tl-school">XP Educação</div>
             <div class="tl-period">2026 – 2027</div>
           </div>
-
           <div class="timeline-item done">
             <div class="tl-degree">
               MBA em Design de Produtos Digitais (UX/UI)
@@ -540,7 +1278,6 @@
             <div class="tl-school">Anhanguera Educacional</div>
             <div class="tl-period">2025</div>
           </div>
-
           <div class="timeline-item active">
             <div class="tl-degree">
               Bacharelado em Engenharia da Computação
@@ -549,7 +1286,6 @@
             <div class="tl-school">UNIVESP</div>
             <div class="tl-period">2024 – 2029</div>
           </div>
-
           <div class="timeline-item">
             <div class="tl-degree">
               MBA em Desenvolvimento de Sistemas para Web e Mobile
@@ -558,7 +1294,6 @@
             <div class="tl-school">UNISAL</div>
             <div class="tl-period">2014 – 2015</div>
           </div>
-
           <div class="timeline-item">
             <div class="tl-degree">
               Análise e Desenvolvimento de Sistemas
@@ -567,7 +1302,6 @@
             <div class="tl-school">FATEC Guaratinguetá</div>
             <div class="tl-period">2011 – 2013</div>
           </div>
-
           <div class="timeline-item done">
             <div class="tl-degree">
               Bacharel em Ciência da Computação
@@ -589,11 +1323,74 @@
               Scrum Foundation Professional Certification — SFPC™
             </div>
             <div class="cert-issuer">Certiprof · 2026</div>
+            <a
+              href="https://profiles.badgeclaimed.com/user-181006/badges/urn:uuid:5300f631-d4b0-4094-899e-6406dfea5f3e.html"
+              target="_blank"
+              class="cert-issuer"
+              >Visualizar credencial</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- IDIOMAS -->
+      <section>
+        <p class="section-label">idiomas</p>
+        <div class="lang-card">
+          <div class="lang-flag">🇺🇸</div>
+          <div>
+            <div class="lang-name">Inglês</div>
+            <div class="lang-level">Intermediário</div>
+          </div>
+          <div class="lang-bar-wrap">
+            <div class="lang-bar-bg">
+              <div class="lang-bar-fill"></div>
+            </div>
           </div>
         </div>
       </section>
 
       <footer>&nbsp;·&nbsp; perfil em constante evolução &nbsp;·&nbsp;</footer>
     </div>
+
+    <script>
+      function initCarousel(carouselId, prevId, nextId, cardSelector) {
+        const carousel = document.getElementById(carouselId);
+        const cardW = () => {
+          const card = carousel.querySelector(cardSelector);
+          return card ? (card.offsetWidth + 16) * 2 : 300;
+        };
+        document
+          .getElementById(prevId)
+          .addEventListener("click", () =>
+            carousel.scrollBy({ left: -cardW(), behavior: "smooth" }),
+          );
+        document
+          .getElementById(nextId)
+          .addEventListener("click", () =>
+            carousel.scrollBy({ left: cardW(), behavior: "smooth" }),
+          );
+        let isDown = false,
+          startX,
+          scrollLeft;
+        carousel.addEventListener("mousedown", (e) => {
+          isDown = true;
+          startX = e.pageX - carousel.offsetLeft;
+          scrollLeft = carousel.scrollLeft;
+        });
+        carousel.addEventListener("mouseleave", () => (isDown = false));
+        carousel.addEventListener("mouseup", () => (isDown = false));
+        carousel.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          carousel.scrollLeft =
+            scrollLeft - (e.pageX - carousel.offsetLeft - startX) * 1.2;
+        });
+      }
+
+      initCarousel("exp-carousel", "exp-prev", "exp-next", ".exp-card");
+      initCarousel("proj-carousel", "proj-prev", "proj-next", ".proj-card");
+      initCarousel("study-carousel", "study-prev", "study-next", ".study-card");
+    </script>
   </body>
 </html>
