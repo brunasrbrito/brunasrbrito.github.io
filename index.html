@@ -95,14 +95,6 @@
         padding: 100px 0 60px;
         animation: fadeUp 0.8s ease both;
       }
-      .hero-label {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 12px;
-      }
       h1 {
         font-family: "DM Serif Display", serif;
         font-size: clamp(2.8rem, 6vw, 4.2rem);
@@ -120,7 +112,6 @@
         font-size: 1.05rem;
         max-width: 520px;
       }
-
       .hero-badges {
         display: flex;
         flex-wrap: wrap;
@@ -144,7 +135,6 @@
         border-color: var(--accent);
         color: var(--accent);
       }
-
       .contact-row {
         display: flex;
         flex-wrap: wrap;
@@ -251,7 +241,6 @@
         border-color: var(--accent);
         color: var(--accent);
       }
-
       .carousel {
         display: flex;
         gap: 16px;
@@ -279,10 +268,10 @@
         background: var(--accent);
       }
 
-      /* EXPERIENCE CAROUSEL */
+      /* EXPERIENCE CARDS */
       .exp-card {
-        min-width: 340px;
-        max-width: 340px;
+        min-width: 360px;
+        max-width: 360px;
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 14px;
@@ -319,7 +308,6 @@
         font-family: "DM Mono", monospace;
         font-size: 10px;
         color: var(--muted);
-        text-align: right;
         line-height: 1.6;
         flex-shrink: 0;
       }
@@ -343,6 +331,92 @@
         color: var(--accent);
         font-size: 10px;
         top: 3px;
+      }
+
+      /* ASM CAREER PROGRESSION */
+      .exp-progression {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 18px 0 16px;
+        padding: 0 4px;
+      }
+      .exp-progression::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 18px;
+        right: 18px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--border) 0%,
+          var(--accent) 50%,
+          var(--accent2) 100%
+        );
+        z-index: 0;
+      }
+      .prog-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        position: relative;
+        z-index: 1;
+        flex: 1;
+      }
+      .prog-dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--surface2);
+        border: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        font-weight: 500;
+        color: var(--muted);
+        flex-shrink: 0;
+      }
+      .prog-step.is-past .prog-dot {
+        background: var(--surface2);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .prog-step.is-current .prog-dot {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        border-color: transparent;
+        color: #fff;
+        font-size: 10px;
+        box-shadow: 0 0 12px var(--glow);
+      }
+      .prog-info {
+        text-align: center;
+      }
+      .prog-label {
+        font-family: "DM Mono", monospace;
+        font-size: 8.5px;
+        letter-spacing: 0.03em;
+        color: var(--muted);
+        line-height: 1.3;
+        white-space: nowrap;
+      }
+      .prog-step.is-current .prog-label {
+        color: var(--accent2);
+      }
+      .prog-year {
+        font-family: "DM Mono", monospace;
+        font-size: 7.5px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .prog-step.is-current .prog-year {
+        color: var(--muted);
       }
 
       /* PROJECTS CAROUSEL */
@@ -395,7 +469,6 @@
         line-height: 1.5;
         flex: 1;
       }
-
       .carousel-notice {
         margin-top: 16px;
         font-family: "DM Mono", monospace;
@@ -651,6 +724,15 @@
         font-size: 11px;
         color: var(--muted);
         margin-top: 2px;
+        display: block;
+      }
+      a.cert-issuer {
+        color: var(--accent2);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      a.cert-issuer:hover {
+        color: var(--accent);
       }
 
       /* LANGUAGE */
@@ -736,11 +818,8 @@
           max-width: 220px;
         }
         .exp-card {
-          min-width: 280px;
-          max-width: 280px;
-        }
-        .exp-meta {
-          text-align: left;
+          min-width: 300px;
+          max-width: 300px;
         }
       }
     </style>
@@ -841,11 +920,36 @@
           <div class="exp-card">
             <div class="exp-header">
               <div>
-                <div class="exp-role">Analista de Sistemas III</div>
+                <div class="exp-role">Analista de Sistemas</div>
                 <div class="exp-company">Applied Scientific Methods (ASM)</div>
               </div>
-              <div class="exp-meta">06/2025 – Atual<br />Remoto</div>
+              <div class="exp-meta">11/2016 – Atual<br />Remoto</div>
             </div>
+
+            <div class="exp-progression">
+              <div class="prog-step is-past">
+                <div class="prog-dot">I</div>
+                <div class="prog-info">
+                  <div class="prog-label">Analista<br />Sistemas I</div>
+                  <div class="prog-year">11/2016</div>
+                </div>
+              </div>
+              <div class="prog-step is-past">
+                <div class="prog-dot">II</div>
+                <div class="prog-info">
+                  <div class="prog-label">Analista<br />Sistemas II</div>
+                  <div class="prog-year">05/2017</div>
+                </div>
+              </div>
+              <div class="prog-step is-current">
+                <div class="prog-dot">III</div>
+                <div class="prog-info">
+                  <div class="prog-label">Analista<br />Sistemas III</div>
+                  <div class="prog-year">06/2025 · atual</div>
+                </div>
+              </div>
+            </div>
+
             <ul class="exp-bullets">
               <li>
                 Desenvolvimento, manutenção e implementação de melhorias de
@@ -853,33 +957,16 @@
               </li>
               <li>Consumo e integração com APIs REST</li>
               <li>
-                Criação e visualizações de tabelas dinamicas com DataTables
+                Criação e visualizações de tabelas dinâmicas com DataTables
               </li>
               <li>Criação de gráficos e visualizações com Google Charts</li>
               <li>Apoio ao backend com PHP (Laravel)</li>
               <li>
-                Manutenção e criação do tema do portal institucional (Wordpress)
+                Apoio na gestão, manutenção e otimização de banco de dados MySQL
               </li>
-            </ul>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <div class="exp-role">Analista de Sistemas II</div>
-                <div class="exp-company">Applied Scientific Methods (ASM)</div>
-              </div>
-              <div class="exp-meta">05/2017 – 06/2025<br />Remoto</div>
-            </div>
-            <ul class="exp-bullets">
               <li>
-                Desenvolvimento de interfaces web responsivas (HTML, Sass,
-                JavaScript)
+                Manutenção e criação do tema do portal institucional (WordPress)
               </li>
-              <li>Integração com APIs REST</li>
-              <li>Manutenção e evolução de sistemas internos</li>
-              <li>Criação de gráficos e visualizações com Google Charts</li>
-              <li>Atuação com PHP (Laravel) e WordPress em projetos web</li>
             </ul>
           </div>
 
@@ -894,34 +981,17 @@
               <div class="exp-meta">02/2017 – 03/2019<br />Remoto</div>
             </div>
             <ul class="exp-bullets">
-              <li>Criação de interfaces modernas e responsivas</li>
-              <li>Desenvolvimento com HTML, Sass, JavaScript</li>
               <li>
-                Integração com APIs e criação de gráficos com Google Charts
+                Desenvolvimento front-end utilizando HTML, SCSS, JavaScript,
+                Bootstrap e Materialize
               </li>
-              <li>Projetos utilizando PHP (Laravel) e WordPress</li>
-            </ul>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <div class="exp-role">Analista de Sistemas</div>
-                <div class="exp-company">Applied Scientific Methods (ASM)</div>
-              </div>
-              <div class="exp-meta">
-                11/2016 – 01/2017<br />São José dos Campos – SP
-              </div>
-            </div>
-            <ul class="exp-bullets">
+              <li>Integração e consumo de APIs REST</li>
+              <li>Implementação de tabelas dinâmicas com DataTables</li>
               <li>
-                Desenvolvimento de interfaces para sistemas web com HTML, Sass e
-                JavaScript
+                Criação de gráficos e visualizações de dados com Google Charts
               </li>
-              <li>Desenvolvimento e manutenção de aplicações web</li>
-              <li>Consumo e integração com APIs REST</li>
-              <li>Criação de gráficos com Google Charts</li>
-              <li>Apoio em backend com PHP (Laravel) e WordPress</li>
+              <li>Desenvolvimento back-end com Laravel</li>
+              <li>Modelagem e gerenciamento de banco de dados MySQL</li>
             </ul>
           </div>
 
@@ -936,10 +1006,18 @@
               </div>
             </div>
             <ul class="exp-bullets">
-              <li>Desenvolvimento de interfaces com HTML, Less e JavaScript</li>
-              <li>Implementação de layouts e integração com backend</li>
-              <li>Foco em usabilidade e experiência do usuário</li>
-              <li>Vivência com CakePHP e WordPress</li>
+              <li>
+                Desenvolvimento front-end com WordPress, HTML, Less e
+                JavaScript, com foco em responsividade, performance e
+                experiência do usuário
+              </li>
+              <li>
+                Customização de temas e ajustes em funcionalidades no WordPress
+              </li>
+              <li>
+                Experiência com o framework CakePHP no desenvolvimento e
+                manutenção de aplicações web
+              </li>
             </ul>
           </div>
 
@@ -955,11 +1033,16 @@
             </div>
             <ul class="exp-bullets">
               <li>
-                Desenvolvimento de interfaces web com HTML, CSS e JavaScript
+                Desenvolvimento de websites em WordPress, com foco em
+                responsividade, performance, SEO e experiência do usuário
               </li>
-              <li>Implementação de layouts e integração com backend</li>
-              <li>Atuação com PHP (Laravel) e WordPress</li>
-              <li>Contato direto com clientes e levantamento de requisitos</li>
+              <li>Customização de temas conforme necessidades do projeto</li>
+              <li>
+                Otimização de performance e tempo de carregamento das páginas
+              </li>
+              <li>Implementação de boas práticas de SEO</li>
+              <li>Integração com ferramentas e APIs externas</li>
+              <li>Manutenção e atualização contínua de websites</li>
             </ul>
           </div>
 
@@ -976,13 +1059,15 @@
             <ul class="exp-bullets">
               <li>
                 Desenvolvimento de interfaces para sistemas web com HTML, CSS e
-                JavaScript
+                JavaScript, com foco em usabilidade e responsividade
               </li>
               <li>
-                Utilização de Kendo UI para componentes e interfaces ricas
+                Utilização do Kendo UI para construção de componentes e
+                interfaces ricas e interativas
               </li>
               <li>
-                Desenvolvimento com jQuery e manipulação dinâmica de conteúdo
+                Customização e adaptação de temas do ThemeForest, ajustando
+                layout, estilos e funcionalidades conforme requisitos do projeto
               </li>
             </ul>
           </div>
@@ -1000,7 +1085,14 @@
               </div>
             </div>
             <ul class="exp-bullets">
-              <li>Suporte técnico e apoio em atividades de TI</li>
+              <li>
+                Suporte técnico e apoio em atividades de TI, atuando na
+                resolução de problemas e manutenção de sistemas
+              </li>
+              <li>
+                Desenvolvimento de sistema interno utilizando Java Web e MySQL,
+                com foco no controle e organização de processos
+              </li>
             </ul>
           </div>
         </div>
@@ -1032,7 +1124,9 @@
             <span class="proj-tag">Sistema</span>
             <div class="proj-name">Osys</div>
             <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">Sistema de gestão de ordem de serviços.</div>
+            <div class="proj-desc">
+              Sistema para gerenciamento e controle de ordens de serviço.
+            </div>
           </div>
 
           <div class="proj-card">
@@ -1051,7 +1145,9 @@
             <div class="proj-company">
               BluTee — Soluções Web, Mobile e Visual
             </div>
-            <div class="proj-desc">Website oficial do grupo Penedo Riders.</div>
+            <div class="proj-desc">
+              Desenvolvimento do site oficial do grupo Penedo Riders.
+            </div>
           </div>
 
           <div class="proj-card">
@@ -1061,7 +1157,9 @@
               BluTee — Soluções Web, Mobile e Visual
             </div>
             <div class="proj-desc">
-              Website do evento de encontro internacional.
+              Desenvolvimento do website do 6º Encontro Internacional Penedo
+              Riders, focado na divulgação do evento e na centralização de
+              informações para participantes.
             </div>
           </div>
 
@@ -1072,7 +1170,9 @@
               BluTee — Soluções Web, Mobile e Visual
             </div>
             <div class="proj-desc">
-              Website do evento de encontro internacional.
+              Desenvolvimento do website do 7º Encontro Internacional Penedo
+              Riders, focado na divulgação do evento e na centralização de
+              informações para participantes.
             </div>
           </div>
 
@@ -1080,7 +1180,11 @@
             <span class="proj-tag">Website</span>
             <div class="proj-name">Site da EXLA</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
-            <div class="proj-desc">Site institucional da empresa EXLA.</div>
+            <div class="proj-desc">
+              Desenvolvimento do website institucional da EXLA, focado na
+              apresentação de serviços e fortalecimento da presença digital da
+              empresa.
+            </div>
           </div>
 
           <div class="proj-card">
@@ -1088,7 +1192,8 @@
             <div class="proj-name">Leasing</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Sistema de gestão de arrecadação de Leasing.
+              Sistema de gestão de arrecadação de leasing, focado no controle
+              financeiro e no acompanhamento de contratos.
             </div>
           </div>
 
@@ -1097,7 +1202,8 @@
             <div class="proj-name">CRM — Lance</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              CRM feito sob medida para a empresa Lance.
+              Sistema CRM customizado para a empresa Lance, focado na gestão de
+              clientes e processos comerciais.
             </div>
           </div>
 
@@ -1106,7 +1212,8 @@
             <div class="proj-name">Página de Reforma da EXLA</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Página em construção durante reforma do site.
+              Desenvolvimento de página temporária de ‘em construção’ para
+              comunicação com usuários durante a reformulação do site.
             </div>
           </div>
 
@@ -1117,8 +1224,8 @@
               Centro Universitário Salesiano de São Paulo
             </div>
             <div class="proj-desc">
-              Sistema desktop para gerenciamento de auto escola utilizando o
-              Framework Hibernate.
+              Desenvolvimento de sistema desktop para gestão de autoescola,
+              utilizando Hibernate para persistência e controle de dados.
             </div>
           </div>
 
@@ -1131,8 +1238,8 @@
               INPE — Instituto Nacional de Pesquisas Espaciais
             </div>
             <div class="proj-desc">
-              Sistema interno para gerenciamento das movimentações ocorridas na
-              unidade.
+              Desenvolvimento de sistema interno para gestão e acompanhamento
+              das movimentações operacionais da unidade.
             </div>
           </div>
 
@@ -1141,7 +1248,9 @@
             <div class="proj-name">TOT — Administração Escolar</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Sistema de gestão da vida escolar do munícipe.
+              Sistema de gestão da vida escolar do munícipe, focado no
+              acompanhamento da trajetória acadêmica e organização de
+              informações educacionais.
             </div>
           </div>
 
@@ -1150,7 +1259,8 @@
             <div class="proj-name">TOT — Mobile</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Iniciação do projeto mobile para gestão da vida do munícipe.
+              Início do desenvolvimento de aplicação mobile para gestão da vida
+              do munícipe, focada na centralização de serviços e informações..
             </div>
           </div>
 
@@ -1160,7 +1270,11 @@
             <div class="proj-company">
               BluTee — Soluções Web, Mobile e Visual
             </div>
-            <div class="proj-desc">Website institucional da Blutee.</div>
+            <div class="proj-desc">
+              Desenvolvimento do website institucional da Blutee, focado na
+              apresentação de serviços e fortalecimento da presença digital da
+              empresa.
+            </div>
           </div>
 
           <div class="proj-card">
@@ -1168,7 +1282,8 @@
             <div class="proj-name">Hypne</div>
             <div class="proj-company">Applied Scientific Methods</div>
             <div class="proj-desc">
-              Alterações e melhorias no website do projeto.
+              Manutenção evolutiva do website do projeto, com implementação de
+              melhorias e otimizações contínuas.
             </div>
           </div>
 
@@ -1177,7 +1292,9 @@
             <div class="proj-name">Macro Engenharia</div>
             <div class="proj-company">Applied Scientific Methods</div>
             <div class="proj-desc">
-              Website institucional da Macro Engenharia.
+              Desenvolvimento do website institucional da Macro Engenharia,
+              focado na apresentação de serviços e fortalecimento da presença
+              digital da empresa.
             </div>
           </div>
 
@@ -1187,7 +1304,10 @@
             <div class="proj-company">
               BluTee — Soluções Web, Mobile e Visual
             </div>
-            <div class="proj-desc">Reformulação do website institucional.</div>
+            <div class="proj-desc">
+              Reformulação de website institucional, com foco em modernização,
+              usabilidade e melhoria da experiência do usuário.
+            </div>
           </div>
 
           <div class="proj-card">
@@ -1195,7 +1315,9 @@
             <div class="proj-name">Website do Artista</div>
             <div class="proj-company">Fundação João Paulo II</div>
             <div class="proj-desc">
-              Reformulação da página dos artistas da Canção Nova.
+              Reformulação da página de artistas da Canção Nova, com foco em
+              usabilidade, organização de conteúdo e melhoria da experiência do
+              usuário.
             </div>
           </div>
         </div>
@@ -1221,7 +1343,11 @@
           <div class="study-card">
             <span class="study-tag">Sistema</span>
             <div class="study-name">Sigma</div>
-            <div class="study-desc">Sistema de gerenciamento de madereira.</div>
+            <div class="study-desc">
+              Desenvolvimento de sistema de gerenciamento para madeireira como
+              projeto de estudo, focado na organização de processos e controle
+              operacional.
+            </div>
             <div class="study-techs">
               <span class="study-tech-pill">Next.js</span>
               <span class="study-tech-pill">NestJS</span>
