@@ -37,6 +37,11 @@ body {
   margin-bottom: 0 !important;
 }
 
+.center-align {
+  display: flex;
+  align-items: center;
+}
+
 /* ── NOISE TEXTURE ── */
 body::after {
   content: "";
