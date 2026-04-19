@@ -3,23 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bruna Brito — Desenvolvedora Web</title>
+    <title>Bruna Brito — Desenvolvedora Web & UX/UI</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #0d0a0a;
-        --surface: #161010;
-        --surface2: #1f1515;
-        --border: #2e1f1f;
-        --accent: #e63946;
-        --accent2: #f4a261;
-        --accent3: #ff6b6b;
-        --text: #f0e8e8;
-        --muted: #a88f8f;
-        --glow: rgba(230, 57, 70, 0.22);
+        --bg: #080c10;
+        --sidebar-bg: #0d1117;
+        --surface: #111820;
+        --surface2: #18222e;
+        --border: #1e2d3d;
+        --accent: #e3604d;
+        --accent2: #d1c8a3;
+        --accent3: #acba9d;
+        --text: #e2eaf4;
+        --muted: #6b8399;
+        --glow: rgba(56, 189, 248, 0.15);
+        --sidebar-w: 280px;
       }
 
       *,
@@ -36,82 +38,271 @@
       body {
         background: var(--bg);
         color: var(--text);
-        font-family: "DM Sans", sans-serif;
-        font-size: 16px;
+        font-family: "Outfit", sans-serif;
+        font-size: 15px;
         line-height: 1.7;
         overflow-x: hidden;
       }
 
-      body::before {
+      .margin-bottom-0 {
+        margin-bottom: 0 !important;
+      }
+
+      /* ── NOISE TEXTURE ── */
+      body::after {
         content: "";
         position: fixed;
         inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
         pointer-events: none;
-        z-index: 0;
-        opacity: 0.6;
+        z-index: 9999;
+        opacity: 0.5;
       }
 
-      .blob {
+      /* ── SIDEBAR ── */
+      .sidebar {
         position: fixed;
-        border-radius: 50%;
-        filter: blur(90px);
-        pointer-events: none;
-        z-index: 0;
-        opacity: 0.25;
+        top: 0;
+        left: 0;
+        width: var(--sidebar-w);
+        height: 100vh;
+        background: var(--sidebar-bg);
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        padding: 48px 32px;
+        z-index: 100;
+        overflow-y: auto;
       }
-      .blob-1 {
+
+      .sidebar-avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        color: var(--bg);
+        font-weight: 700;
+        margin-bottom: 20px;
+        box-shadow: 0 0 32px var(--glow);
+        flex-shrink: 0;
+      }
+
+      .sidebar-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.2;
+      }
+      .sidebar-name em {
+        color: var(--accent);
+        font-style: italic;
+      }
+
+      .sidebar-role {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+
+      .sidebar-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 24px 0;
+      }
+
+      /* NAV */
+      nav {
+        flex: 1;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      nav a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 500;
+        padding: 10px 14px;
+        border-radius: 10px;
+        transition: all 0.2s;
+        letter-spacing: 0.02em;
+      }
+      nav a .nav-icon {
+        width: 18px;
+        text-align: center;
+        font-size: 14px;
+        opacity: 0.7;
+      }
+      nav a:hover,
+      nav a.active {
+        background: rgba(56, 189, 248, 0.08);
+        color: var(--accent);
+      }
+      nav a.active .nav-icon {
+        opacity: 1;
+      }
+
+      /* SOCIAL */
+      .sidebar-social {
+        display: flex;
+        gap: 10px;
+        margin-top: 24px;
+      }
+      .social-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        text-decoration: none;
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      .social-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        box-shadow: 0 0 12px var(--glow);
+      }
+      .social-btn svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+      }
+
+      .hire-btn {
+        display: block;
+        margin-top: 14px;
+        text-align: center;
+        text-decoration: none;
+        padding: 11px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        color: var(--bg);
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .hire-btn:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+
+      /* ── MAIN ── */
+      .main {
+        margin-left: var(--sidebar-w);
+        min-height: 100vh;
+      }
+
+      section {
+        padding: 80px 60px;
+        border-bottom: 1px solid var(--border);
+        animation: fadeUp 0.7s ease both;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── HERO ── */
+      #home {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        pointer-events: none;
+        opacity: 0.12;
+      }
+      .hero-blob-1 {
         width: 500px;
         height: 500px;
-        background: #b91c1c;
+        background: var(--accent);
         top: -100px;
-        left: -100px;
+        right: -100px;
       }
-      .blob-2 {
-        width: 400px;
-        height: 400px;
-        background: #dc2626;
-        bottom: 10%;
-        right: -80px;
-      }
-      .blob-3 {
-        width: 300px;
-        height: 300px;
-        background: #c2410c;
-        top: 50%;
-        left: 40%;
+      .hero-blob-2 {
+        width: 350px;
+        height: 350px;
+        background: var(--accent2);
+        bottom: 0;
+        left: 20%;
       }
 
-      .wrapper {
-        position: relative;
-        z-index: 1;
-        max-width: 860px;
-        margin: 0 auto;
-        padding: 0 24px 80px;
+      .hero-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        padding: 5px 14px;
+        border-radius: 999px;
+        display: inline-block;
+        margin-bottom: 24px;
       }
 
-      /* HERO */
-      header {
-        padding: 100px 0 60px;
-        animation: fadeUp 0.8s ease both;
-      }
-      h1 {
-        font-family: "DM Serif Display", serif;
-        font-size: clamp(2.8rem, 6vw, 4.2rem);
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
         line-height: 1.08;
         letter-spacing: -0.02em;
         color: #fff;
+        font-weight: 700;
       }
-      h1 em {
+      .hero-title em {
         font-style: italic;
         color: var(--accent);
       }
-      .hero-sub {
-        margin-top: 20px;
+      .hero-title .line2 {
+        color: var(--muted);
+        font-weight: 400;
+      }
+
+      .hero-desc {
+        margin-top: 24px;
         color: var(--muted);
         font-size: 1.05rem;
-        max-width: 520px;
+        max-width: 540px;
+        line-height: 1.8;
       }
+
       .hero-badges {
         display: flex;
         flex-wrap: wrap;
@@ -119,8 +310,8 @@
         margin-top: 28px;
       }
       .badge {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
         letter-spacing: 0.08em;
         padding: 6px 14px;
         border-radius: 999px;
@@ -135,227 +326,239 @@
         border-color: var(--accent);
         color: var(--accent);
       }
-      .contact-row {
+
+      .hero-cta {
         display: flex;
+        gap: 14px;
+        margin-top: 36px;
         flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 32px;
       }
-      .contact-link {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+      .btn-primary {
+        padding: 13px 28px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        color: var(--bg);
+        font-weight: 600;
+        font-size: 14px;
         text-decoration: none;
-        color: var(--muted);
-        font-family: "DM Mono", monospace;
-        font-size: 12px;
-        letter-spacing: 0.05em;
-        padding: 8px 18px;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        background: var(--surface);
-        transition: all 0.2s;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
       }
-      .contact-link:hover {
+      .btn-primary:hover {
+        opacity: 0.88;
+        transform: translateY(-2px);
+      }
+      .btn-secondary {
+        padding: 12px 28px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-size: 14px;
+        text-decoration: none;
+        background: var(--surface);
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .btn-secondary:hover {
         border-color: var(--accent);
         color: var(--accent);
-        box-shadow: 0 0 16px var(--glow);
-      }
-      .contact-link svg {
-        width: 14px;
-        height: 14px;
-        fill: currentColor;
       }
 
-      /* SECTIONS */
-      section {
-        margin-top: 64px;
-        animation: fadeUp 0.8s ease both;
-      }
-      .section-label {
-        font-family: "DM Mono", monospace;
+      /* ── SECTION HEADER ── */
+      .section-kicker {
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
         color: var(--accent);
-        margin-bottom: 24px;
+        margin-bottom: 8px;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
       }
-      .section-label::after {
+      .section-kicker::after {
         content: "";
         flex: 1;
         height: 1px;
         background: var(--border);
       }
-
-      /* TECH */
-      .tech-group + .tech-group {
-        margin-top: 20px;
-      }
-      .tech-group-label {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        color: var(--muted);
-        margin-bottom: 12px;
-        text-transform: uppercase;
-      }
-      .tech-section img {
-        border-radius: 12px;
-        opacity: 0.88;
-        transition:
-          opacity 0.2s,
-          transform 0.2s;
-      }
-      .tech-section img:hover {
-        opacity: 1;
-        transform: scale(1.04);
-      }
-
-      /* CAROUSEL SHARED */
-      .carousel-arrows {
-        display: flex;
-        gap: 8px;
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.15;
         margin-bottom: 14px;
-        justify-content: flex-end;
       }
-      .carr-btn {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 8px;
+      .section-sub {
         color: var(--muted);
-        width: 32px;
-        height: 32px;
-        cursor: pointer;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition:
-          border-color 0.2s,
-          color 0.2s;
-      }
-      .carr-btn:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-      .carousel {
-        display: flex;
-        gap: 16px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 12px;
-        cursor: grab;
-      }
-      .carousel:active {
-        cursor: grabbing;
-      }
-      .carousel::-webkit-scrollbar {
-        height: 4px;
-      }
-      .carousel::-webkit-scrollbar-track {
-        background: var(--surface);
-        border-radius: 99px;
-      }
-      .carousel::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 99px;
-      }
-      .carousel::-webkit-scrollbar-thumb:hover {
-        background: var(--accent);
+        font-size: 0.95rem;
+        max-width: 560px;
+        margin-bottom: 48px;
       }
 
-      /* EXPERIENCE CARDS */
-      .exp-card {
-        min-width: 360px;
-        max-width: 360px;
+      /* ── ABOUT GRID ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .about-info-card {
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 14px;
-        padding: 20px 24px;
-        scroll-snap-align: start;
-        flex-shrink: 0;
+        padding: 24px;
         transition:
           border-color 0.2s,
           box-shadow 0.2s;
       }
-      .exp-card:hover {
+      .about-info-card:hover {
         border-color: var(--accent);
         box-shadow: 0 0 20px var(--glow);
       }
+      .about-info-card.full {
+        grid-column: 1/-1;
+      }
+      .info-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .info-value {
+        color: var(--text);
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      /* TECH STACK */
+      .tech-wrap {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 14px;
+        margin-top: 0;
+      }
+      .tech-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 14px;
+        text-align: center;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s,
+          transform 0.2s;
+        cursor: default;
+      }
+      .tech-item:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 16px var(--glow);
+        transform: translateY(-3px);
+      }
+      .tech-icon {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+      }
+      .tech-name {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+      }
+
+      /* ── EXPERIENCE ── */
+      .exp-timeline {
+        position: relative;
+        padding-left: 28px;
+      }
+      .exp-timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(
+          180deg,
+          var(--accent),
+          var(--accent2),
+          transparent
+        );
+      }
+
+      .exp-item {
+        position: relative;
+        padding: 0 0 40px 36px;
+      }
+      .exp-item:last-child {
+        padding-bottom: 0;
+      }
+      .exp-item::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 8px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--glow);
+      }
+
       .exp-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        gap: 12px;
+        gap: 16px;
         flex-wrap: wrap;
+        margin-bottom: 8px;
       }
       .exp-role {
         font-weight: 600;
-        color: var(--text);
-        font-size: 0.97rem;
+        color: #fff;
+        font-size: 1rem;
       }
       .exp-company {
-        font-family: "DM Mono", monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         color: var(--accent);
         margin-top: 3px;
       }
-      .exp-meta {
-        font-family: "DM Mono", monospace;
+      .exp-period {
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         color: var(--muted);
-        line-height: 1.6;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 4px 10px;
+        border-radius: 999px;
         flex-shrink: 0;
       }
-      .exp-bullets {
-        margin-top: 14px;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .exp-bullets li {
-        font-size: 0.875rem;
-        color: var(--muted);
-        padding-left: 16px;
-        position: relative;
-      }
-      .exp-bullets li::before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        color: var(--accent);
-        font-size: 10px;
-        top: 3px;
-      }
 
-      /* ASM CAREER PROGRESSION */
       .exp-progression {
-        position: relative;
         display: flex;
         align-items: flex-start;
-        justify-content: space-between;
-        margin: 18px 0 16px;
-        padding: 0 4px;
+        gap: 0;
+        margin: 14px 0;
+        position: relative;
       }
       .exp-progression::before {
         content: "";
         position: absolute;
         top: 14px;
-        left: 18px;
-        right: 18px;
+        left: 14px;
+        right: 14px;
         height: 2px;
         background: linear-gradient(
           90deg,
-          var(--border) 0%,
-          var(--accent) 50%,
-          var(--accent2) 100%
+          var(--border),
+          var(--accent),
+          var(--accent2)
         );
-        z-index: 0;
       }
       .prog-step {
         display: flex;
@@ -375,14 +578,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "DM Mono", monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 9px;
-        font-weight: 500;
         color: var(--muted);
-        flex-shrink: 0;
       }
       .prog-step.is-past .prog-dot {
-        background: var(--surface2);
         border-color: var(--accent);
         color: var(--accent);
       }
@@ -391,7 +591,7 @@
         height: 32px;
         background: linear-gradient(135deg, var(--accent), var(--accent2));
         border-color: transparent;
-        color: #fff;
+        color: var(--bg);
         font-size: 10px;
         box-shadow: 0 0 12px var(--glow);
       }
@@ -399,9 +599,8 @@
         text-align: center;
       }
       .prog-label {
-        font-family: "DM Mono", monospace;
-        font-size: 8.5px;
-        letter-spacing: 0.03em;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 8px;
         color: var(--muted);
         line-height: 1.3;
         white-space: nowrap;
@@ -410,45 +609,66 @@
         color: var(--accent2);
       }
       .prog-year {
-        font-family: "DM Mono", monospace;
-        font-size: 7.5px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7px;
         color: var(--muted);
         margin-top: 2px;
       }
-      .prog-step.is-current .prog-year {
+
+      .exp-bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .exp-bullets li {
+        font-size: 0.875rem;
         color: var(--muted);
+        padding-left: 18px;
+        position: relative;
+      }
+      .exp-bullets li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 9px;
+        top: 4px;
       }
 
-      /* PROJECTS CAROUSEL */
+      /* ── PROJECTS ── */
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+      }
       .proj-card {
-        min-width: 250px;
-        max-width: 250px;
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 14px;
-        padding: 20px;
-        scroll-snap-align: start;
-        flex-shrink: 0;
+        padding: 22px 20px;
         display: flex;
         flex-direction: column;
         gap: 10px;
         transition:
           border-color 0.2s,
-          box-shadow 0.2s;
+          box-shadow 0.2s,
+          transform 0.2s;
       }
       .proj-card:hover {
         border-color: var(--accent);
-        box-shadow: 0 0 20px var(--glow);
+        box-shadow: 0 0 24px var(--glow);
+        transform: translateY(-3px);
       }
       .proj-tag {
-        font-family: "DM Mono", monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 9px;
         letter-spacing: 0.15em;
         text-transform: uppercase;
         color: var(--accent);
-        background: rgba(230, 57, 70, 0.1);
-        border: 1px solid rgba(230, 57, 70, 0.2);
-        padding: 2px 8px;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        padding: 3px 10px;
         border-radius: 999px;
         align-self: flex-start;
       }
@@ -459,7 +679,7 @@
         line-height: 1.3;
       }
       .proj-company {
-        font-family: "DM Mono", monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         color: var(--accent2);
       }
@@ -469,22 +689,22 @@
         line-height: 1.5;
         flex: 1;
       }
-      .carousel-notice {
-        margin-top: 16px;
-        font-family: "DM Mono", monospace;
+
+      .proj-notice {
+        margin-top: 20px;
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         color: var(--muted);
-        letter-spacing: 0.03em;
         background: var(--surface);
         border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 10px 16px;
+        border-radius: 10px;
+        padding: 12px 16px;
         display: flex;
         align-items: flex-start;
         gap: 8px;
         line-height: 1.6;
       }
-      .carousel-notice::before {
+      .proj-notice::before {
         content: "ℹ";
         color: var(--accent2);
         font-size: 13px;
@@ -492,16 +712,43 @@
         margin-top: 1px;
       }
 
-      /* ESTUDOS */
+      /* PROJ FILTERS */
+      .proj-filters {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 28px;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        padding: 6px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        background: var(--surface);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: rgba(56, 189, 248, 0.07);
+      }
+
+      /* STUDIES */
+      .study-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+      }
       .study-card {
-        min-width: 260px;
-        max-width: 260px;
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 14px;
-        padding: 20px;
-        scroll-snap-align: start;
-        flex-shrink: 0;
+        padding: 22px 20px;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -511,17 +758,17 @@
       }
       .study-card:hover {
         border-color: var(--accent2);
-        box-shadow: 0 0 20px rgba(244, 162, 97, 0.18);
+        box-shadow: 0 0 20px rgba(129, 140, 248, 0.15);
       }
       .study-tag {
-        font-family: "DM Mono", monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 9px;
         letter-spacing: 0.15em;
         text-transform: uppercase;
         color: var(--accent2);
-        background: rgba(244, 162, 97, 0.08);
-        border: 1px solid rgba(244, 162, 97, 0.2);
-        padding: 2px 8px;
+        background: rgba(129, 140, 248, 0.08);
+        border: 1px solid rgba(129, 140, 248, 0.2);
+        padding: 3px 10px;
         border-radius: 999px;
         align-self: flex-start;
       }
@@ -543,10 +790,9 @@
         gap: 6px;
         margin-top: 4px;
       }
-      .study-tech-pill {
-        font-family: "DM Mono", monospace;
+      .study-pill {
+        font-family: "JetBrains Mono", monospace;
         font-size: 9px;
-        letter-spacing: 0.06em;
         color: var(--muted);
         background: var(--surface2);
         border: 1px solid var(--border);
@@ -559,9 +805,8 @@
         gap: 6px;
         text-decoration: none;
         color: var(--accent2);
-        font-family: "DM Mono", monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
-        letter-spacing: 0.04em;
         margin-top: 4px;
         transition: color 0.2s;
       }
@@ -575,64 +820,47 @@
         flex-shrink: 0;
       }
 
-      /* VOLUNTEER */
-      .volunteer-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 20px 24px;
+      /* ── RESUME / EDUCATION ── */
+      .resume-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+      }
+      .resume-col-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 28px;
         display: flex;
-        align-items: flex-start;
-        gap: 18px;
-        transition:
-          border-color 0.2s,
-          box-shadow 0.2s;
+        align-items: center;
+        gap: 10px;
       }
-      .volunteer-card:hover {
-        border-color: var(--accent2);
-        box-shadow: 0 0 20px rgba(244, 162, 97, 0.15);
-      }
-      .volunteer-icon {
-        font-size: 1.8rem;
-        flex-shrink: 0;
-      }
-      .volunteer-role {
-        font-weight: 600;
-        color: var(--text);
-        font-size: 0.97rem;
-      }
-      .volunteer-org {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-        color: var(--accent2);
-        margin-top: 3px;
-      }
-      .volunteer-period {
-        font-family: "DM Mono", monospace;
-        font-size: 10px;
-        color: var(--muted);
-        margin-top: 4px;
+      .resume-col-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
       }
 
-      /* TIMELINE */
-      .timeline {
+      .edu-timeline {
         display: flex;
         flex-direction: column;
         border-left: 1px solid var(--border);
-        padding-left: 28px;
-        margin-left: 8px;
+        padding-left: 24px;
+        margin-left: 6px;
       }
-      .timeline-item {
+      .edu-item {
         position: relative;
-        padding-bottom: 32px;
+        padding-bottom: 28px;
       }
-      .timeline-item:last-child {
+      .edu-item:last-child {
         padding-bottom: 0;
       }
-      .timeline-item::before {
+      .edu-item::before {
         content: "";
         position: absolute;
-        left: -34px;
+        left: -30px;
         top: 6px;
         width: 10px;
         height: 10px;
@@ -640,36 +868,39 @@
         background: var(--surface2);
         border: 2px solid var(--border);
       }
-      .timeline-item.done::before {
+      .edu-item.done::before {
         background: var(--accent);
         border-color: var(--accent);
         box-shadow: 0 0 8px var(--glow);
       }
-      .timeline-item.active::before {
+      .edu-item.active::before {
         background: var(--accent2);
         border-color: var(--accent2);
       }
-      .tl-degree {
+
+      .edu-degree {
         font-weight: 600;
         color: var(--text);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        line-height: 1.3;
       }
-      .tl-school {
-        font-family: "DM Mono", monospace;
+      .edu-school {
+        font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         color: var(--muted);
         margin-top: 2px;
       }
-      .tl-period {
-        font-family: "DM Mono", monospace;
+      .edu-period {
+        font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         color: var(--muted);
         margin-top: 4px;
       }
+
       .pill {
         display: inline-block;
-        font-family: "DM Mono", monospace;
-        font-size: 9px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 8px;
         letter-spacing: 0.1em;
         padding: 2px 8px;
         border-radius: 999px;
@@ -678,22 +909,27 @@
         vertical-align: middle;
       }
       .pill-done {
-        background: rgba(230, 57, 70, 0.12);
+        background: rgba(56, 189, 248, 0.12);
         color: var(--accent);
-        border: 1px solid rgba(230, 57, 70, 0.3);
+        border: 1px solid rgba(56, 189, 248, 0.3);
       }
       .pill-active {
-        background: rgba(244, 162, 97, 0.12);
+        background: rgba(129, 140, 248, 0.12);
         color: var(--accent2);
-        border: 1px solid rgba(244, 162, 97, 0.3);
+        border: 1px solid rgba(129, 140, 248, 0.3);
       }
       .pill-nc {
-        background: rgba(168, 143, 143, 0.1);
+        background: rgba(107, 131, 153, 0.1);
         color: var(--muted);
         border: 1px solid var(--border);
       }
 
-      /* CERT */
+      /* CERTIFICATIONS */
+      .cert-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
       .cert-card {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -720,7 +956,7 @@
         font-size: 0.95rem;
       }
       .cert-issuer {
-        font-family: "DM Mono", monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         color: var(--muted);
         margin-top: 2px;
@@ -735,12 +971,51 @@
         color: var(--accent);
       }
 
-      /* LANGUAGE */
+      /* VOLUNTEER */
+      .volunteer-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 24px;
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .volunteer-card:hover {
+        border-color: var(--accent2);
+        box-shadow: 0 0 20px rgba(129, 140, 248, 0.15);
+      }
+      .volunteer-icon {
+        font-size: 2rem;
+        flex-shrink: 0;
+      }
+      .volunteer-role {
+        font-weight: 600;
+        color: var(--text);
+        font-size: 0.97rem;
+      }
+      .volunteer-org {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--accent2);
+        margin-top: 3px;
+      }
+      .volunteer-period {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      /* LANGUAGES */
       .lang-card {
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 14px;
-        padding: 20px 24px;
+        padding: 22px 24px;
         display: flex;
         align-items: center;
         gap: 20px;
@@ -762,7 +1037,7 @@
         font-size: 0.97rem;
       }
       .lang-level {
-        font-family: "DM Mono", monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         color: var(--muted);
         margin-top: 3px;
@@ -784,127 +1059,375 @@
         border-radius: 99px;
       }
 
+      /* CONTACT */
+      #contact {
+        min-height: auto;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+      .contact-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        color: var(--text);
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .contact-item:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 20px var(--glow);
+      }
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-icon svg {
+        width: 18px;
+        height: 18px;
+        fill: var(--accent);
+      }
+      .contact-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .contact-value {
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 2px;
+      }
+
       /* FOOTER */
       footer {
-        margin-top: 80px;
-        padding-top: 32px;
-        border-top: 1px solid var(--border);
         text-align: center;
-        font-family: "DM Mono", monospace;
+        padding: 32px 60px;
+        font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         color: var(--muted);
         letter-spacing: 0.05em;
-        animation: fadeUp 0.8s 0.4s ease both;
       }
 
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(24px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      /* MOBILE NAV TOGGLE */
+      .mob-toggle {
+        display: none;
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        z-index: 200;
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .mob-toggle span {
+        display: block;
+        width: 20px;
+        height: 1.5px;
+        background: var(--text);
+        border-radius: 99px;
+        transition: all 0.3s;
       }
 
-      @media (max-width: 600px) {
-        .proj-card {
-          min-width: 210px;
-          max-width: 210px;
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        :root {
+          --sidebar-w: 0px;
         }
-        .study-card {
-          min-width: 220px;
-          max-width: 220px;
+        .sidebar {
+          transform: translateX(-280px);
+          width: 280px;
+          transition: transform 0.3s ease;
+          z-index: 150;
         }
-        .exp-card {
-          min-width: 300px;
-          max-width: 300px;
+        .sidebar.open {
+          transform: translateX(0);
+        }
+        .main {
+          margin-left: 0;
+        }
+        .mob-toggle {
+          display: flex;
+        }
+        section {
+          padding: 64px 24px;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .resume-two-col {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .proj-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .proj-grid {
+          grid-template-columns: 1fr;
+        }
+        .tech-wrap {
+          grid-template-columns: repeat(3, 1fr);
         }
       }
     </style>
   </head>
   <body>
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+    <!-- MOBILE TOGGLE -->
+    <button class="mob-toggle" id="mob-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
 
-    <div class="wrapper">
-      <!-- HERO -->
-      <header>
-        <h1>Bruna <em>Brito</em></h1>
-        <p class="hero-sub">Desenvolvedora Web | UX/UI</p>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-avatar">
+        <img
+          src="assets/images/eu.png"
+          class="sidebar-avatar margin-bottom-0"
+        />
+      </div>
+      <div class="sidebar-name">Bruna <em>Brito</em></div>
+      <div class="sidebar-role">Dev Web &amp; UX/UI</div>
+
+      <div class="sidebar-divider"></div>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="#home" class="active"
+              ><span class="nav-icon">🏠</span>Início</a
+            >
+          </li>
+          <li>
+            <a href="#about"><span class="nav-icon">👤</span>Sobre</a>
+          </li>
+          <li>
+            <a href="#experience"
+              ><span class="nav-icon">💼</span>Experiência</a
+            >
+          </li>
+          <li>
+            <a href="#projects"><span class="nav-icon">🚀</span>Projetos</a>
+          </li>
+          <li>
+            <a href="#studies"><span class="nav-icon">🧪</span>Estudos</a>
+          </li>
+          <li>
+            <a href="#resume"><span class="nav-icon">🎓</span>Formação</a>
+          </li>
+          <li>
+            <a href="#contact"><span class="nav-icon">✉️</span>Contato</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-social">
+        <a
+          class="social-btn"
+          href="https://www.linkedin.com/in/brunasrbrito/"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+        </a>
+        <a
+          class="social-btn"
+          href="https://github.com/brunasrbrito"
+          target="_blank"
+          aria-label="GitHub"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            />
+          </svg>
+        </a>
+        <a
+          class="social-btn"
+          href="mailto:brunasrbrito@gmail.com"
+          aria-label="Email"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <a class="hire-btn" href="mailto:brunasrbrito@gmail.com"
+        >✉ Entre em contato</a
+      >
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- HOME -->
+      <section id="home">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+
+        <h1 class="hero-title">
+          Olá, sou <em>Bruna</em><br />
+          <span class="line2">Desenvolvedora Web &amp; UX/UI</span>
+        </h1>
+        <p class="hero-desc">
+          Desenvolvedora full stack com mais de 13 anos de experiência em
+          desenvolvimento web, apaixonada por criar interfaces funcionais,
+          acessíveis e visualmente refinadas. Atualmente aprofundando
+          conhecimentos em Engenharia de Dados e IA.
+        </p>
         <div class="hero-badges">
           <span class="badge">Web Development</span>
           <span class="badge">UX / UI</span>
           <span class="badge">Full Stack</span>
-          <span class="badge">MBA · Dados & IA</span>
+          <span class="badge">PHP · Laravel</span>
+          <span class="badge">MBA · Dados &amp; IA</span>
+          <span class="badge">Scrum Foundation™</span>
         </div>
-        <div class="contact-row">
-          <a
-            class="contact-link"
-            href="https://www.linkedin.com/in/brunasrbrito/"
-            target="_blank"
+        <div class="hero-cta">
+          <a class="btn-primary" href="assets/curriculo.pdf" target="_blank"
+            >📄 Baixar currículo</a
           >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-              />
-            </svg>
-            LinkedIn
-          </a>
-          <a class="contact-link" href="mailto:brunasrbrito@gmail.com">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
-              />
-            </svg>
-            E-mail
-          </a>
-          <a
-            class="contact-link"
-            href="https://github.com/brunasrbrito"
-            target="_blank"
-          >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-              />
-            </svg>
-            GitHub
-          </a>
-          <a class="contact-link" href="assets/curriculo.pdf" target="_blank">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 3h8v1.5H8V15zm0 3h5v1.5H8V18z"
-              />
-            </svg>
-            Visualizar currículo
-          </a>
+          <a class="btn-secondary" href="#experience">Ver experiência →</a>
         </div>
-      </header>
+      </section>
 
-      <!-- EXPERIÊNCIA (carousel) -->
-      <section>
-        <p class="section-label">experiência profissional</p>
-        <div class="carousel-arrows">
-          <button class="carr-btn" id="exp-prev" aria-label="Anterior">
-            &#8592;
-          </button>
-          <button class="carr-btn" id="exp-next" aria-label="Próximo">
-            &#8594;
-          </button>
+      <!-- ABOUT -->
+      <section id="about">
+        <p class="section-kicker">sobre mim</p>
+        <h2 class="section-title">Quem sou eu</h2>
+        <p class="section-sub">
+          Trabalho com desenvolvimento web desde 2012, sempre buscando unir
+          qualidade técnica com uma boa experiência de uso.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-info-card">
+            <div class="info-label">Localização</div>
+            <div class="info-value">Aparecida, São Paulo — SP</div>
+          </div>
+          <div class="about-info-card">
+            <div class="info-label">Modalidade</div>
+            <div class="info-value">Remoto · Desde 2016</div>
+          </div>
+          <div class="about-info-card">
+            <div class="info-label">Idiomas</div>
+            <div class="info-value">
+              Português (nativo) · Inglês (intermediário)
+            </div>
+          </div>
+          <div class="about-info-card">
+            <div class="info-label">Interesses</div>
+            <div class="info-value">Dados, IA, UX Research, Acessibilidade</div>
+          </div>
+          <div class="about-info-card full">
+            <div class="info-label">Stack principal</div>
+            <div class="tech-wrap" style="margin-top: 14px">
+              <div class="tech-item">
+                <div class="tech-icon">🌐</div>
+                <div class="tech-name">HTML / CSS</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">⚡</div>
+                <div class="tech-name">JavaScript</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🅱️</div>
+                <div class="tech-name">Bootstrap</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🎨</div>
+                <div class="tech-name">SCSS</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🐘</div>
+                <div class="tech-name">PHP · Laravel</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🗄️</div>
+                <div class="tech-name">MySQL</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">📊</div>
+                <div class="tech-name">DataTables</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">📈</div>
+                <div class="tech-name">Google Charts</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🔗</div>
+                <div class="tech-name">REST APIs</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🌿</div>
+                <div class="tech-name">WordPress</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">⚛️</div>
+                <div class="tech-name">Next.js</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-icon">🦺</div>
+                <div class="tech-name">NestJS</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="carousel" id="exp-carousel">
-          <div class="exp-card">
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <p class="section-kicker">trajetória</p>
+        <h2 class="section-title">Experiência profissional</h2>
+        <p class="section-sub">
+          Mais de 13 anos construindo produtos web em diferentes contextos e
+          empresas.
+        </p>
+
+        <div class="exp-timeline">
+          <div class="exp-item">
             <div class="exp-header">
               <div>
                 <div class="exp-role">Analista de Sistemas</div>
                 <div class="exp-company">Applied Scientific Methods (ASM)</div>
               </div>
-              <div class="exp-meta">11/2016 – Atual<br />Remoto</div>
+              <span class="exp-period">11/2016 – Atual · Remoto</span>
             </div>
-
             <div class="exp-progression">
               <div class="prog-step is-past">
                 <div class="prog-dot">I</div>
@@ -928,28 +1451,24 @@
                 </div>
               </div>
             </div>
-
             <ul class="exp-bullets">
               <li>
-                Desenvolvimento, manutenção e implementação de melhorias de
-                aplicações web (HTML, SCSS, JavaScript, Bootstrap, Materialize)
+                Desenvolvimento, manutenção e melhoria de aplicações web (HTML,
+                SCSS, JavaScript, Bootstrap, Materialize)
               </li>
               <li>Consumo e integração com APIs REST</li>
               <li>
-                Criação e visualizações de tabelas dinâmicas com DataTables
+                Criação de tabelas dinâmicas com DataTables e visualizações com
+                Google Charts
               </li>
-              <li>Criação de gráficos e visualizações com Google Charts</li>
-              <li>Apoio ao backend com PHP (Laravel)</li>
-              <li>
-                Apoio na gestão, manutenção e otimização de banco de dados MySQL
-              </li>
+              <li>Apoio ao backend com PHP (Laravel) e banco de dados MySQL</li>
               <li>
                 Manutenção e criação do tema do portal institucional (WordPress)
               </li>
             </ul>
           </div>
 
-          <div class="exp-card">
+          <div class="exp-item">
             <div class="exp-header">
               <div>
                 <div class="exp-role">
@@ -957,50 +1476,42 @@
                 </div>
                 <div class="exp-company">BritoTI</div>
               </div>
-              <div class="exp-meta">02/2017 – 03/2019<br />Remoto</div>
+              <span class="exp-period">02/2017 – 03/2019 · Remoto</span>
             </div>
             <ul class="exp-bullets">
               <li>
-                Desenvolvimento front-end utilizando HTML, SCSS, JavaScript,
-                Bootstrap e Materialize
+                Desenvolvimento front-end com HTML, SCSS, JavaScript, Bootstrap
+                e Materialize
               </li>
-              <li>Integração e consumo de APIs REST</li>
-              <li>Implementação de tabelas dinâmicas com DataTables</li>
               <li>
-                Criação de gráficos e visualizações de dados com Google Charts
+                Integração com APIs REST e tabelas dinâmicas com DataTables
               </li>
-              <li>Desenvolvimento back-end com Laravel</li>
-              <li>Modelagem e gerenciamento de banco de dados MySQL</li>
+              <li>Visualizações de dados com Google Charts</li>
+              <li>Desenvolvimento back-end com Laravel e modelagem MySQL</li>
             </ul>
           </div>
 
-          <div class="exp-card">
+          <div class="exp-item">
             <div class="exp-header">
               <div>
                 <div class="exp-role">Web Designer</div>
                 <div class="exp-company">Fundação João Paulo II (FJPII)</div>
               </div>
-              <div class="exp-meta">
-                05/2016 – 10/2016<br />Cachoeira Paulista – SP
-              </div>
+              <span class="exp-period"
+                >05/2016 – 10/2016 · Cachoeira Paulista – SP</span
+              >
             </div>
             <ul class="exp-bullets">
               <li>
                 Desenvolvimento front-end com WordPress, HTML, Less e
-                JavaScript, com foco em responsividade, performance e
-                experiência do usuário
+                JavaScript, com foco em responsividade e UX
               </li>
-              <li>
-                Customização de temas e ajustes em funcionalidades no WordPress
-              </li>
-              <li>
-                Experiência com o framework CakePHP no desenvolvimento e
-                manutenção de aplicações web
-              </li>
+              <li>Customização de temas e funcionalidades WordPress</li>
+              <li>Manutenção de aplicações com CakePHP</li>
             </ul>
           </div>
 
-          <div class="exp-card">
+          <div class="exp-item">
             <div class="exp-header">
               <div>
                 <div class="exp-role">
@@ -1008,50 +1519,43 @@
                 </div>
                 <div class="exp-company">Blutee</div>
               </div>
-              <div class="exp-meta">05/2015 – 08/2016<br />Remoto</div>
+              <span class="exp-period">05/2015 – 08/2016 · Remoto</span>
             </div>
             <ul class="exp-bullets">
               <li>
-                Desenvolvimento de websites em WordPress, com foco em
-                responsividade, performance, SEO e experiência do usuário
+                Desenvolvimento de websites em WordPress com foco em
+                responsividade, performance, SEO e UX
               </li>
-              <li>Customização de temas conforme necessidades do projeto</li>
               <li>
-                Otimização de performance e tempo de carregamento das páginas
+                Customização de temas, otimização de performance e integração
+                com APIs externas
               </li>
-              <li>Implementação de boas práticas de SEO</li>
-              <li>Integração com ferramentas e APIs externas</li>
-              <li>Manutenção e atualização contínua de websites</li>
             </ul>
           </div>
 
-          <div class="exp-card">
+          <div class="exp-item">
             <div class="exp-header">
               <div>
                 <div class="exp-role">Programadora de Interface</div>
                 <div class="exp-company">EXLA</div>
               </div>
-              <div class="exp-meta">
-                08/2012 – 12/2015<br />Guaratinguetá – SP
-              </div>
+              <span class="exp-period"
+                >08/2012 – 12/2015 · Guaratinguetá – SP</span
+              >
             </div>
             <ul class="exp-bullets">
               <li>
-                Desenvolvimento de interfaces para sistemas web com HTML, CSS e
-                JavaScript, com foco em usabilidade e responsividade
+                Desenvolvimento de interfaces web com HTML, CSS e JavaScript,
+                com foco em usabilidade e responsividade
               </li>
               <li>
-                Utilização do Kendo UI para construção de componentes e
-                interfaces ricas e interativas
-              </li>
-              <li>
-                Customização e adaptação de temas do ThemeForest, ajustando
-                layout, estilos e funcionalidades conforme requisitos do projeto
+                Construção de componentes com Kendo UI e customização de temas
+                do ThemeForest
               </li>
             </ul>
           </div>
 
-          <div class="exp-card">
+          <div class="exp-item">
             <div class="exp-header">
               <div>
                 <div class="exp-role">Estágio em Informática</div>
@@ -1059,37 +1563,39 @@
                   INPE — Instituto Nacional de Pesquisas Espaciais
                 </div>
               </div>
-              <div class="exp-meta">
-                08/2010 – 03/2011<br />Cachoeira Paulista – SP
-              </div>
+              <span class="exp-period"
+                >08/2010 – 03/2011 · Cachoeira Paulista – SP</span
+              >
             </div>
             <ul class="exp-bullets">
               <li>
-                Suporte técnico e apoio em atividades de TI, atuando na
-                resolução de problemas e manutenção de sistemas
-              </li>
-              <li>
-                Desenvolvimento de sistema interno utilizando Java Web e MySQL,
-                com foco no controle e organização de processos
+                Suporte técnico e desenvolvimento de sistema interno com Java
+                Web e MySQL
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- PROJETOS -->
-      <section>
-        <p class="section-label">projetos</p>
-        <div class="carousel-arrows">
-          <button class="carr-btn" id="proj-prev" aria-label="Anterior">
-            &#8592;
-          </button>
-          <button class="carr-btn" id="proj-next" aria-label="Próximo">
-            &#8594;
-          </button>
+      <!-- PROJECTS -->
+      <section id="projects">
+        <p class="section-kicker">portfólio</p>
+        <h2 class="section-title">Projetos</h2>
+        <p class="section-sub">
+          Seleção de projetos desenvolvidos ao longo da carreira.
+        </p>
+
+        <div class="proj-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="Sistema">Sistemas</button>
+          <button class="filter-btn" data-filter="Website">Websites</button>
+          <button class="filter-btn" data-filter="Evento">Eventos</button>
+          <button class="filter-btn" data-filter="CRM">CRM</button>
+          <button class="filter-btn" data-filter="Mobile">Mobile</button>
         </div>
-        <div class="carousel" id="proj-carousel">
-          <div class="proj-card">
+
+        <div class="proj-grid" id="proj-grid">
+          <div class="proj-card" data-type="Sistema">
             <span class="proj-tag">Sistema</span>
             <div class="proj-name">GestaoSW</div>
             <div class="proj-company">Autônomo</div>
@@ -1098,8 +1604,7 @@
               treinamentos.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Sistema">
             <span class="proj-tag">Sistema</span>
             <div class="proj-name">Osys</div>
             <div class="proj-company">Autônomo</div>
@@ -1107,8 +1612,7 @@
               Sistema para gerenciamento e controle de ordens de serviço.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Website">
             <span class="proj-tag">Website</span>
             <div class="proj-name">GilsonTur</div>
             <div class="proj-company">Autônomo</div>
@@ -1117,220 +1621,150 @@
               destinos e captação de clientes.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Website">
             <span class="proj-tag">Website</span>
             <div class="proj-name">Penedo Riders</div>
-            <div class="proj-company">
-              BluTee — Soluções Web, Mobile e Visual
-            </div>
+            <div class="proj-company">BluTee</div>
             <div class="proj-desc">
               Desenvolvimento do site oficial do grupo Penedo Riders.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Evento">
             <span class="proj-tag">Evento</span>
             <div class="proj-name">6º Encontro Internacional Penedo Riders</div>
-            <div class="proj-company">
-              BluTee — Soluções Web, Mobile e Visual
-            </div>
+            <div class="proj-company">BluTee</div>
             <div class="proj-desc">
-              Desenvolvimento do website do 6º Encontro Internacional Penedo
-              Riders, focado na divulgação do evento e na centralização de
-              informações para participantes.
+              Website do 6º Encontro Internacional, focado na divulgação e
+              centralização de informações para participantes.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Evento">
             <span class="proj-tag">Evento</span>
             <div class="proj-name">7º Encontro Internacional Penedo Riders</div>
-            <div class="proj-company">
-              BluTee — Soluções Web, Mobile e Visual
-            </div>
+            <div class="proj-company">BluTee</div>
             <div class="proj-desc">
-              Desenvolvimento do website do 7º Encontro Internacional Penedo
-              Riders, focado na divulgação do evento e na centralização de
-              informações para participantes.
+              Website do 7º Encontro Internacional, focado na divulgação e
+              centralização de informações para participantes.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Website">
             <span class="proj-tag">Website</span>
             <div class="proj-name">Site da EXLA</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Desenvolvimento do website institucional da EXLA, focado na
-              apresentação de serviços e fortalecimento da presença digital da
-              empresa.
+              Website institucional com foco na apresentação de serviços e
+              presença digital.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Sistema">
             <span class="proj-tag">Sistema</span>
             <div class="proj-name">Leasing</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Sistema de gestão de arrecadação de leasing, focado no controle
-              financeiro e no acompanhamento de contratos.
+              Sistema de gestão de arrecadação de leasing com controle
+              financeiro e acompanhamento de contratos.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="CRM">
             <span class="proj-tag">CRM</span>
             <div class="proj-name">CRM — Lance</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Sistema CRM customizado para a empresa Lance, focado na gestão de
-              clientes e processos comerciais.
+              Sistema CRM customizado para gestão de clientes e processos
+              comerciais.
             </div>
           </div>
-
-          <div class="proj-card">
-            <span class="proj-tag">Landing Page</span>
-            <div class="proj-name">Página de Reforma da EXLA</div>
-            <div class="proj-company">EXLA — Software Estratégico</div>
-            <div class="proj-desc">
-              Desenvolvimento de página temporária de ‘em construção’ para
-              comunicação com usuários durante a reformulação do site.
-            </div>
-          </div>
-
-          <div class="proj-card">
-            <span class="proj-tag">TCC</span>
-            <div class="proj-name">TCC — Auto Escola</div>
-            <div class="proj-company">
-              Centro Universitário Salesiano de São Paulo
-            </div>
-            <div class="proj-desc">
-              Desenvolvimento de sistema desktop para gestão de autoescola,
-              utilizando Hibernate para persistência e controle de dados.
-            </div>
-          </div>
-
-          <div class="proj-card">
-            <span class="proj-tag">Sistema Interno</span>
-            <div class="proj-name">
-              Gerenciamento de Movimentações Administrativas
-            </div>
-            <div class="proj-company">
-              INPE — Instituto Nacional de Pesquisas Espaciais
-            </div>
-            <div class="proj-desc">
-              Desenvolvimento de sistema interno para gestão e acompanhamento
-              das movimentações operacionais da unidade.
-            </div>
-          </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Sistema">
             <span class="proj-tag">Sistema</span>
             <div class="proj-name">TOT — Administração Escolar</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Sistema de gestão da vida escolar do munícipe, focado no
-              acompanhamento da trajetória acadêmica e organização de
-              informações educacionais.
+              Sistema de gestão da vida escolar do munícipe com acompanhamento
+              da trajetória acadêmica.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Mobile">
             <span class="proj-tag">Mobile</span>
             <div class="proj-name">TOT — Mobile</div>
             <div class="proj-company">EXLA — Software Estratégico</div>
             <div class="proj-desc">
-              Início do desenvolvimento de aplicação mobile para gestão da vida
-              do munícipe, focada na centralização de serviços e informações..
+              Aplicação mobile para gestão da vida do munícipe, centralizando
+              serviços e informações.
             </div>
           </div>
-
-          <div class="proj-card">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">Blutee</div>
-            <div class="proj-company">
-              BluTee — Soluções Web, Mobile e Visual
-            </div>
-            <div class="proj-desc">
-              Desenvolvimento do website institucional da Blutee, focado na
-              apresentação de serviços e fortalecimento da presença digital da
-              empresa.
-            </div>
-          </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Website">
             <span class="proj-tag">Website</span>
             <div class="proj-name">Hypne</div>
             <div class="proj-company">Applied Scientific Methods</div>
             <div class="proj-desc">
-              Manutenção evolutiva do website do projeto, com implementação de
-              melhorias e otimizações contínuas.
+              Manutenção evolutiva do website com implementação de melhorias
+              contínuas.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Website">
             <span class="proj-tag">Website</span>
             <div class="proj-name">Macro Engenharia</div>
             <div class="proj-company">Applied Scientific Methods</div>
             <div class="proj-desc">
-              Desenvolvimento do website institucional da Macro Engenharia,
-              focado na apresentação de serviços e fortalecimento da presença
-              digital da empresa.
+              Website institucional com foco em apresentação de serviços e
+              presença digital.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Website">
             <span class="proj-tag">Website</span>
             <div class="proj-name">Safety World</div>
-            <div class="proj-company">
-              BluTee — Soluções Web, Mobile e Visual
-            </div>
+            <div class="proj-company">BluTee</div>
             <div class="proj-desc">
-              Reformulação de website institucional, com foco em modernização,
-              usabilidade e melhoria da experiência do usuário.
+              Reformulação de website institucional com foco em modernização e
+              usabilidade.
             </div>
           </div>
-
-          <div class="proj-card">
+          <div class="proj-card" data-type="Website">
             <span class="proj-tag">Website</span>
-            <div class="proj-name">Website do Artista</div>
+            <div class="proj-name">Website do Artista · Canção Nova</div>
             <div class="proj-company">Fundação João Paulo II</div>
             <div class="proj-desc">
-              Reformulação da página de artistas da Canção Nova, com foco em
-              usabilidade, organização de conteúdo e melhoria da experiência do
-              usuário.
+              Reformulação da página de artistas com foco em usabilidade e
+              organização de conteúdo.
+            </div>
+          </div>
+          <div class="proj-card" data-type="Website">
+            <span class="proj-tag">Website</span>
+            <div class="proj-name">Blutee</div>
+            <div class="proj-company">BluTee</div>
+            <div class="proj-desc">
+              Website institucional com foco em apresentação de serviços e
+              presença digital.
             </div>
           </div>
         </div>
-        <div class="carousel-notice">
+        <div class="proj-notice">
           Alguns projetos não estão mais disponíveis online por terem sido
           temporários, removidos pelos responsáveis ou por questões de
           privacidade.
         </div>
       </section>
 
-      <!-- ESTUDOS -->
-      <section>
-        <p class="section-label">estudos</p>
-        <div class="carousel-arrows">
-          <button class="carr-btn" id="study-prev" aria-label="Anterior">
-            &#8592;
-          </button>
-          <button class="carr-btn" id="study-next" aria-label="Próximo">
-            &#8594;
-          </button>
-        </div>
-        <div class="carousel" id="study-carousel">
+      <!-- STUDIES -->
+      <section id="studies">
+        <p class="section-kicker">laboratório</p>
+        <h2 class="section-title">Estudos &amp; Experimentações</h2>
+        <p class="section-sub">
+          Projetos pessoais desenvolvidos para praticar novas tecnologias.
+        </p>
+
+        <div class="study-grid">
           <div class="study-card">
             <span class="study-tag">Sistema</span>
             <div class="study-name">Sigma</div>
             <div class="study-desc">
-              Desenvolvimento de sistema de gerenciamento para madeireira como
-              projeto de estudo, focado na organização de processos e controle
-              operacional.
+              Sistema de gerenciamento para madeireira como projeto de estudo,
+              focado na organização de processos e controle operacional.
             </div>
             <div class="study-techs">
-              <span class="study-tech-pill">Next.js</span>
-              <span class="study-tech-pill">NestJS</span>
-              <span class="study-tech-pill">MySQL</span>
+              <span class="study-pill">Next.js</span>
+              <span class="study-pill">NestJS</span>
+              <span class="study-pill">MySQL</span>
             </div>
             <a
               class="study-link"
@@ -1348,154 +1782,260 @@
         </div>
       </section>
 
-      <!-- VOLUNTARIADO -->
-      <section>
-        <p class="section-label">voluntariado</p>
-        <div class="volunteer-card">
-          <div class="volunteer-icon">🤝</div>
+      <!-- RESUME -->
+      <section id="resume">
+        <p class="section-kicker">formação &amp; certificações</p>
+        <h2 class="section-title">Currículo acadêmico</h2>
+        <p class="section-sub">
+          Graduações, pós-graduações, MBAs e certificações conquistadas ao longo
+          da trajetória.
+        </p>
+
+        <div class="resume-two-col">
           <div>
-            <div class="volunteer-role">Auxiliar</div>
-            <div class="volunteer-org">
-              Conselho Municipal das Mulheres de Aparecida
+            <div class="resume-col-title">🎓 Formação acadêmica</div>
+            <div class="edu-timeline">
+              <div class="edu-item active">
+                <div class="edu-degree">
+                  MBA em Engenharia e Arquitetura de Dados com IA
+                  <span class="pill pill-active">cursando</span>
+                </div>
+                <div class="edu-school">XP Educação</div>
+                <div class="edu-period">2026 – 2027</div>
+              </div>
+              <div class="edu-item done">
+                <div class="edu-degree">
+                  MBA em Design de Produtos Digitais (UX/UI)
+                  <span class="pill pill-done">concluído</span>
+                </div>
+                <div class="edu-school">Anhanguera Educacional</div>
+                <div class="edu-period">2025</div>
+              </div>
+              <div class="edu-item active">
+                <div class="edu-degree">
+                  Bacharelado em Engenharia da Computação
+                  <span class="pill pill-active">cursando</span>
+                </div>
+                <div class="edu-school">UNIVESP</div>
+                <div class="edu-period">2024 – 2029</div>
+              </div>
+              <div class="edu-item">
+                <div class="edu-degree">
+                  MBA em Desenvolvimento de Sistemas Web e Mobile
+                  <span class="pill pill-nc">não concluído</span>
+                </div>
+                <div class="edu-school">UNISAL</div>
+                <div class="edu-period">2014 – 2015</div>
+              </div>
+              <div class="edu-item">
+                <div class="edu-degree">
+                  Análise e Desenvolvimento de Sistemas
+                  <span class="pill pill-nc">não concluído</span>
+                </div>
+                <div class="edu-school">FATEC Guaratinguetá</div>
+                <div class="edu-period">2011 – 2013</div>
+              </div>
+              <div class="edu-item done">
+                <div class="edu-degree">
+                  Bacharel em Ciência da Computação
+                  <span class="pill pill-done">concluído</span>
+                </div>
+                <div class="edu-school">UNISAL</div>
+                <div class="edu-period">2008 – 2011</div>
+              </div>
             </div>
-            <div class="volunteer-period">jun/2012 – dez/2012</div>
           </div>
-        </div>
-      </section>
 
-      <!-- FORMAÇÃO -->
-      <section>
-        <p class="section-label">formação acadêmica</p>
-        <div class="timeline">
-          <div class="timeline-item active">
-            <div class="tl-degree">
-              MBA em Engenharia e Arquitetura de Dados com IA
-              <span class="pill pill-active">cursando</span>
-            </div>
-            <div class="tl-school">XP Educação</div>
-            <div class="tl-period">2026 – 2027</div>
-          </div>
-          <div class="timeline-item done">
-            <div class="tl-degree">
-              MBA em Design de Produtos Digitais (UX/UI)
-              <span class="pill pill-done">concluído</span>
-            </div>
-            <div class="tl-school">Anhanguera Educacional</div>
-            <div class="tl-period">2025</div>
-          </div>
-          <div class="timeline-item active">
-            <div class="tl-degree">
-              Bacharelado em Engenharia da Computação
-              <span class="pill pill-active">cursando</span>
-            </div>
-            <div class="tl-school">UNIVESP</div>
-            <div class="tl-period">2024 – 2029</div>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-degree">
-              MBA em Desenvolvimento de Sistemas para Web e Mobile
-              <span class="pill pill-nc">não concluído</span>
-            </div>
-            <div class="tl-school">UNISAL</div>
-            <div class="tl-period">2014 – 2015</div>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-degree">
-              Análise e Desenvolvimento de Sistemas
-              <span class="pill pill-nc">não concluído</span>
-            </div>
-            <div class="tl-school">FATEC Guaratinguetá</div>
-            <div class="tl-period">2011 – 2013</div>
-          </div>
-          <div class="timeline-item done">
-            <div class="tl-degree">
-              Bacharel em Ciência da Computação
-              <span class="pill pill-done">concluído</span>
-            </div>
-            <div class="tl-school">UNISAL</div>
-            <div class="tl-period">2008 – 2011</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CERTIFICAÇÕES -->
-      <section>
-        <p class="section-label">certificações</p>
-        <div class="cert-card">
-          <div class="cert-icon">🏅</div>
           <div>
-            <div class="cert-name">
-              Scrum Foundation Professional Certification — SFPC™
+            <div class="resume-col-title">🏅 Certificações</div>
+            <div class="cert-grid">
+              <div class="cert-card">
+                <div class="cert-icon">🏅</div>
+                <div>
+                  <div class="cert-name">
+                    Scrum Foundation Professional Certification — SFPC™
+                  </div>
+                  <span class="cert-issuer">Certiprof · 2026</span>
+                  <a
+                    href="https://profiles.badgeclaimed.com/user-181006/badges/urn:uuid:5300f631-d4b0-4094-899e-6406dfea5f3e.html"
+                    target="_blank"
+                    class="cert-issuer"
+                    >Visualizar credencial ↗</a
+                  >
+                </div>
+              </div>
             </div>
-            <div class="cert-issuer">Certiprof · 2026</div>
-            <a
-              href="https://profiles.badgeclaimed.com/user-181006/badges/urn:uuid:5300f631-d4b0-4094-899e-6406dfea5f3e.html"
-              target="_blank"
-              class="cert-issuer"
-              >Visualizar credencial</a
-            >
+
+            <div class="resume-col-title" style="margin-top: 36px">
+              🤝 Voluntariado
+            </div>
+            <div class="volunteer-card">
+              <div class="volunteer-icon">🤝</div>
+              <div>
+                <div class="volunteer-role">Auxiliar</div>
+                <div class="volunteer-org">
+                  Conselho Municipal das Mulheres de Aparecida
+                </div>
+                <div class="volunteer-period">jun/2012 – dez/2012</div>
+              </div>
+            </div>
+
+            <div class="resume-col-title" style="margin-top: 36px">
+              🌍 Idiomas
+            </div>
+            <div class="lang-card">
+              <div class="lang-flag">🇧🇷</div>
+              <div>
+                <div class="lang-name">Português</div>
+                <div class="lang-level">Nativo</div>
+              </div>
+              <div class="lang-bar-wrap">
+                <div class="lang-bar-bg">
+                  <div class="lang-bar-fill" style="width: 100%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="lang-card" style="margin-top: 12px">
+              <div class="lang-flag">🇺🇸</div>
+              <div>
+                <div class="lang-name">Inglês</div>
+                <div class="lang-level">Intermediário</div>
+              </div>
+              <div class="lang-bar-wrap">
+                <div class="lang-bar-bg">
+                  <div class="lang-bar-fill" style="width: 55%"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- IDIOMAS -->
-      <section>
-        <p class="section-label">idiomas</p>
-        <div class="lang-card">
-          <div class="lang-flag">🇺🇸</div>
-          <div>
-            <div class="lang-name">Inglês</div>
-            <div class="lang-level">Intermediário</div>
-          </div>
-          <div class="lang-bar-wrap">
-            <div class="lang-bar-bg">
-              <div class="lang-bar-fill"></div>
+      <!-- CONTACT -->
+      <section id="contact">
+        <p class="section-kicker">contato</p>
+        <h2 class="section-title">Vamos conversar?</h2>
+        <p class="section-sub">
+          Disponível para projetos freelance, oportunidades remotas e
+          colaborações. Envie uma mensagem!
+        </p>
+
+        <div class="contact-grid">
+          <a
+            class="contact-item"
+            href="https://www.linkedin.com/in/brunasrbrito/"
+            target="_blank"
+          >
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
             </div>
-          </div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">brunasrbrito</div>
+            </div>
+          </a>
+          <a class="contact-item" href="mailto:brunasrbrito@gmail.com">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">E-mail</div>
+              <div class="contact-value">brunasrbrito@gmail.com</div>
+            </div>
+          </a>
+          <a
+            class="contact-item"
+            href="https://github.com/brunasrbrito"
+            target="_blank"
+          >
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">brunasrbrito</div>
+            </div>
+          </a>
+          <a class="contact-item" href="assets/curriculo.pdf" target="_blank">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="var(--accent)">
+                <path
+                  d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 3h8v1.5H8V15zm0 3h5v1.5H8V18z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Currículo</div>
+              <div class="contact-value">Visualizar / baixar PDF</div>
+            </div>
+          </a>
         </div>
       </section>
 
-      <footer>&nbsp;·&nbsp; perfil em constante evolução &nbsp;·&nbsp;</footer>
-    </div>
+      <footer>
+        &nbsp;·&nbsp; Bruna Brito &nbsp;·&nbsp; perfil em constante evolução
+        &nbsp;·&nbsp;
+      </footer>
+    </main>
 
     <script>
-      function initCarousel(carouselId, prevId, nextId, cardSelector) {
-        const carousel = document.getElementById(carouselId);
-        const cardW = () => {
-          const card = carousel.querySelector(cardSelector);
-          return card ? (card.offsetWidth + 16) * 2 : 300;
-        };
-        document
-          .getElementById(prevId)
-          .addEventListener("click", () =>
-            carousel.scrollBy({ left: -cardW(), behavior: "smooth" }),
-          );
-        document
-          .getElementById(nextId)
-          .addEventListener("click", () =>
-            carousel.scrollBy({ left: cardW(), behavior: "smooth" }),
-          );
-        let isDown = false,
-          startX,
-          scrollLeft;
-        carousel.addEventListener("mousedown", (e) => {
-          isDown = true;
-          startX = e.pageX - carousel.offsetLeft;
-          scrollLeft = carousel.scrollLeft;
-        });
-        carousel.addEventListener("mouseleave", () => (isDown = false));
-        carousel.addEventListener("mouseup", () => (isDown = false));
-        carousel.addEventListener("mousemove", (e) => {
-          if (!isDown) return;
-          e.preventDefault();
-          carousel.scrollLeft =
-            scrollLeft - (e.pageX - carousel.offsetLeft - startX) * 1.2;
-        });
-      }
+      const toggle = document.getElementById("mob-toggle");
+      const sidebar = document.getElementById("sidebar");
+      toggle.addEventListener("click", () => sidebar.classList.toggle("open"));
+      document.addEventListener("click", (e) => {
+        if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+          sidebar.classList.remove("open");
+        }
+      });
 
-      initCarousel("exp-carousel", "exp-prev", "exp-next", ".exp-card");
-      initCarousel("proj-carousel", "proj-prev", "proj-next", ".proj-card");
-      initCarousel("study-carousel", "study-prev", "study-next", ".study-card");
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll("nav a");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((l) => l.classList.remove("active"));
+              const active = document.querySelector(
+                `nav a[href="#${entry.target.id}"]`,
+              );
+              if (active) active.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      sections.forEach((s) => observer.observe(s));
+
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const projCards = document.querySelectorAll("#proj-grid .proj-card");
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+          projCards.forEach((card) => {
+            const match = filter === "all" || card.dataset.type === filter;
+            card.style.display = match ? "" : "none";
+          });
+        });
+      });
+
+      // Smooth close sidebar on nav click (mobile)
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => sidebar.classList.remove("open"));
+      });
     </script>
   </body>
 </html>
