@@ -42,7 +42,7 @@ body {
   align-items: center;
 }
 
-/* ── NOISE TEXTURE ── */
+/* ── TEXTURA ── */
 body::after {
   content: "";
   position: fixed;
@@ -226,7 +226,7 @@ section {
   }
 }
 
-/* ── HERO ── */
+/* ── HOME ── */
 #home {
   min-height: 100vh;
   display: flex;
@@ -360,7 +360,7 @@ section {
   color: var(--accent);
 }
 
-/* ── SECTION HEADER ── */
+/* ── HEADER ── */
 .section-kicker {
   font-family: "JetBrains Mono", monospace;
   font-size: 10px;
@@ -393,7 +393,7 @@ section {
   margin-bottom: 48px;
 }
 
-/* ── ABOUT GRID ── */
+/* ── SOBRE ── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -429,7 +429,7 @@ section {
   font-weight: 500;
 }
 
-/* TECH STACK */
+/* TECNOLOGIAS */
 .tech-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -464,7 +464,7 @@ section {
   color: var(--muted);
 }
 
-/* ── EXPERIENCE ── */
+/* ── EXPERIENCIA ── */
 .exp-timeline {
   position: relative;
   padding-left: 28px;
@@ -630,7 +630,7 @@ section {
   top: 4px;
 }
 
-/* ── PROJECTS ── */
+/* ── PROJETOS ── */
 .proj-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -706,7 +706,7 @@ section {
   margin-top: 1px;
 }
 
-/* PROJ FILTERS */
+/* PROJETOS FILTRO */
 .proj-filters {
   display: flex;
   gap: 8px;
@@ -732,7 +732,7 @@ section {
   background: rgba(56, 189, 248, 0.07);
 }
 
-/* STUDIES */
+/* ESTUDOS */
 .study-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -814,7 +814,7 @@ section {
   flex-shrink: 0;
 }
 
-/* ── RESUME / EDUCATION ── */
+/* ── FORMAÇÃO ── */
 .resume-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -965,7 +965,7 @@ a.cert-issuer:hover {
   color: var(--accent);
 }
 
-/* VOLUNTEER */
+/* VOLUNTARIADO */
 .volunteer-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1004,7 +1004,7 @@ a.cert-issuer:hover {
   margin-top: 4px;
 }
 
-/* LANGUAGES */
+/* IDIOMAS */
 .lang-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1063,7 +1063,7 @@ footer {
   letter-spacing: 0.05em;
 }
 
-/* MOBILE NAV TOGGLE */
+/* MOBILE */
 .mob-toggle {
   display: none;
   position: fixed;

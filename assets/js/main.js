@@ -1,4 +1,3 @@
-
 const toggle = document.getElementById("mob-toggle");
 const sidebar = document.getElementById("sidebar");
 toggle.addEventListener("click", () => sidebar.classList.toggle("open"));
@@ -40,7 +39,7 @@ filterBtns.forEach((btn) => {
   });
 });
 
-// Smooth close sidebar on nav click (mobile)
+
 navLinks.forEach((link) => {
   link.addEventListener("click", () => sidebar.classList.remove("open"));
 });
