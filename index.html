@@ -3,7 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Bruna Brito — Desenvolvedora Web &amp; UX/UI</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <meta name="theme-color" content="#e3604d" />
+    <meta
+      name="description"
+      content="Desenvolvedora Web especializada em front-end. Veja meus projetos"
+    />
+    <meta
+      name="keywords"
+      content="desenvolvedora web, front-end, full stack, UX UI, portfólio, programação"
+    />
+    <meta name="author" content="Bruna Brito" />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://brunasrbrito.github.io" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -15,78 +32,103 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- MOBILE -->
-    <button class="mob-toggle" id="mob-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <!-- MOBILE OVERLAY -->
+    <div class="mob-overlay" id="mob-overlay" aria-hidden="true"></div>
+
+    <!-- MOBILE TOGGLE -->
+    <button
+      class="mob-toggle"
+      id="mob-toggle"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="sidebar"
+    >
+      <span class="mob-toggle__bar"></span>
+      <span class="mob-toggle__bar"></span>
+      <span class="mob-toggle__bar"></span>
     </button>
 
     <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-avatar">
-        <img
-          src="assets/images/eu.png"
-          class="sidebar-avatar margin-bottom-0"
-        />
+    <aside
+      class="sidebar"
+      id="sidebar"
+      role="navigation"
+      aria-label="Menu lateral"
+    >
+      <div class="sidebar__avatar">
+        <img src="assets/images/eu.png" alt="Foto de Bruna Brito" />
       </div>
-      <div class="sidebar-name">Bruna <em>Brito</em></div>
-      <div class="sidebar-role">Dev Web &amp; UX/UI</div>
+      <div class="sidebar__name">Bruna <em>Brito</em></div>
+      <div class="sidebar__role">Dev Web &amp; UX/UI</div>
 
-      <div class="sidebar-divider"></div>
+      <div class="sidebar__divider"></div>
 
-      <nav>
-        <ul>
+      <nav class="sidebar__nav">
+        <ul class="sidebar__nav-list">
           <li>
-            <a href="#home" class="active"
-              ><span class="nav-icon"><i class="fa-solid fa-house"></i></span
-              >Início</a
-            >
+            <a href="#home" class="sidebar__nav-link is-active">
+              <span class="sidebar__nav-icon"
+                ><i class="fa-solid fa-house"></i
+              ></span>
+              Início
+            </a>
           </li>
           <li>
-            <a href="#about"
-              ><span class="nav-icon"><i class="fa-solid fa-user"></i></span
-              >Sobre</a
-            >
+            <a href="#about" class="sidebar__nav-link">
+              <span class="sidebar__nav-icon"
+                ><i class="fa-solid fa-user"></i
+              ></span>
+              Sobre
+            </a>
           </li>
           <li>
-            <a href="#experience"
-              ><span class="nav-icon"
-                ><i class="fa-solid fa-briefcase"></i></span
-              >Experiência</a
-            >
+            <a href="#experience" class="sidebar__nav-link">
+              <span class="sidebar__nav-icon"
+                ><i class="fa-solid fa-briefcase"></i
+              ></span>
+              Experiência
+            </a>
           </li>
           <li>
-            <a href="#projects"
-              ><span class="nav-icon"><i class="fa-solid fa-rocket"></i></span
-              >Projetos</a
-            >
+            <a href="#projects" class="sidebar__nav-link">
+              <span class="sidebar__nav-icon"
+                ><i class="fa-solid fa-rocket"></i
+              ></span>
+              Projetos
+            </a>
           </li>
           <li>
-            <a href="#studies"
-              ><span class="nav-icon"><i class="fa-solid fa-flask"></i></span
-              >Estudos</a
-            >
+            <a href="#studies" class="sidebar__nav-link">
+              <span class="sidebar__nav-icon"
+                ><i class="fa-solid fa-flask"></i
+              ></span>
+              Estudos
+            </a>
           </li>
           <li>
-            <a href="#resume"
-              ><span class="nav-icon"
-                ><i class="fa-solid fa-graduation-cap"></i></span
-              >Formação</a
-            >
+            <a href="#resume" class="sidebar__nav-link">
+              <span class="sidebar__nav-icon"
+                ><i class="fa-solid fa-graduation-cap"></i
+              ></span>
+              Formação
+            </a>
           </li>
         </ul>
       </nav>
 
-      <div class="sidebar-social">
+      <div class="sidebar__social">
         <a
           class="social-btn"
           href="https://www.linkedin.com/in/brunasrbrito/"
           target="_blank"
+          rel="noopener noreferrer"
           aria-label="LinkedIn"
         >
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
             />
@@ -96,9 +138,10 @@
           class="social-btn"
           href="https://github.com/brunasrbrito"
           target="_blank"
+          rel="noopener noreferrer"
           aria-label="GitHub"
         >
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
             />
@@ -107,9 +150,9 @@
         <a
           class="social-btn"
           href="mailto:brunasrbrito@gmail.com"
-          aria-label="Email"
+          aria-label="Enviar e-mail"
         >
-          <svg viewBox="0 0 24 24">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
               d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
             />
@@ -121,21 +164,21 @@
     <!-- MAIN -->
     <main class="main">
       <!-- HOME -->
-      <section id="home">
-        <div class="hero-blob hero-blob-1"></div>
-        <div class="hero-blob hero-blob-2"></div>
+      <section class="section" id="home">
+        <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+        <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
 
-        <h1 class="hero-title">
+        <h1 class="hero__title">
           Olá, sou <em>Bruna</em><br />
-          <span class="line2">Desenvolvedora Web &amp; UX/UI</span>
+          <span class="hero__title-line2">Desenvolvedora Web &amp; UX/UI</span>
         </h1>
-        <p class="hero-desc">
+        <p class="hero__desc">
           Desenvolvedora full stack com mais de 13 anos de experiência em
           desenvolvimento web, apaixonada por criar interfaces funcionais,
           acessíveis e visualmente refinadas. Atualmente aprofundando
           conhecimentos em Engenharia de Dados e IA.
         </p>
-        <div class="hero-badges">
+        <div class="hero__badges">
           <span class="badge">Web Development</span>
           <span class="badge">UX / UI</span>
           <span class="badge">Full Stack</span>
@@ -143,18 +186,26 @@
           <span class="badge">MBA &middot; Dados &amp; IA</span>
           <span class="badge">Scrum Foundation&trade;</span>
         </div>
-        <div class="hero-cta">
-          <a class="btn-primary" href="assets/curriculo.pdf" target="_blank"
-            ><i class="fa-solid fa-file-arrow-down"></i> Baixar currículo</a
+        <div class="hero__cta">
+          <a
+            class="btn btn--primary"
+            href="assets/curriculo.pdf"
+            target="_blank"
           >
-          <a class="btn-secondary center-align" href="#experience"
-            >Ver experiência &nbsp;<i class="fa-solid fa-arrow-right-long"></i
-          ></a>
+            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+            Baixar currículo
+          </a>
+          <a class="btn btn--secondary" href="#experience">
+            Ver experiência &nbsp;<i
+              class="fa-solid fa-arrow-right-long"
+              aria-hidden="true"
+            ></i>
+          </a>
         </div>
       </section>
 
       <!-- SOBRE -->
-      <section id="about">
+      <section class="section" id="about">
         <p class="section-kicker">sobre mim</p>
         <h2 class="section-title">Quem sou eu</h2>
         <p class="section-sub">
@@ -163,72 +214,88 @@
         </p>
 
         <div class="about-grid">
-          <div class="about-info-card full">
-            <div class="info-label">Stack principal</div>
-            <div class="tech-wrap" style="margin-top: 14px">
+          <div class="info-card info-card--full">
+            <div class="info-card__label">Stack principal</div>
+            <div class="tech-wrap">
               <div class="tech-item">
-                <div class="tech-icon"><i class="fa-solid fa-globe"></i></div>
-                <div class="tech-name">HTML / CSS</div>
+                <div class="tech-item__icon">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="tech-item__name">HTML / CSS</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon"><i class="fa-brands fa-js"></i></div>
-                <div class="tech-name">JavaScript</div>
+                <div class="tech-item__icon">
+                  <i class="fa-brands fa-js"></i>
+                </div>
+                <div class="tech-item__name">JavaScript</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon">
+                <div class="tech-item__icon">
                   <i class="fa-brands fa-bootstrap"></i>
                 </div>
-                <div class="tech-name">Bootstrap</div>
+                <div class="tech-item__name">Bootstrap</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon"><i class="fa-brands fa-sass"></i></div>
-                <div class="tech-name">SCSS</div>
+                <div class="tech-item__icon">
+                  <i class="fa-brands fa-sass"></i>
+                </div>
+                <div class="tech-item__name">SCSS</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon"><i class="fa-brands fa-php"></i></div>
-                <div class="tech-name">PHP &middot; Laravel</div>
+                <div class="tech-item__icon">
+                  <i class="fa-brands fa-php"></i>
+                </div>
+                <div class="tech-item__name">PHP &middot; Laravel</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon">
+                <div class="tech-item__icon">
                   <i class="fa-solid fa-database"></i>
                 </div>
-                <div class="tech-name">MySQL</div>
+                <div class="tech-item__name">MySQL</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon"><i class="fa-solid fa-table"></i></div>
-                <div class="tech-name">DataTables</div>
+                <div class="tech-item__icon">
+                  <i class="fa-solid fa-table"></i>
+                </div>
+                <div class="tech-item__name">DataTables</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon">
+                <div class="tech-item__icon">
                   <i class="fa-solid fa-chart-line"></i>
                 </div>
-                <div class="tech-name">Google Charts</div>
+                <div class="tech-item__name">Google Charts</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon"><i class="fa-solid fa-plug"></i></div>
-                <div class="tech-name">REST APIs</div>
+                <div class="tech-item__icon">
+                  <i class="fa-solid fa-plug"></i>
+                </div>
+                <div class="tech-item__name">REST APIs</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon">
+                <div class="tech-item__icon">
                   <i class="fa-brands fa-wordpress"></i>
                 </div>
-                <div class="tech-name">WordPress</div>
+                <div class="tech-item__name">WordPress</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon"><i class="fa-brands fa-react"></i></div>
-                <div class="tech-name">Next.js</div>
+                <div class="tech-item__icon">
+                  <i class="fa-brands fa-react"></i>
+                </div>
+                <div class="tech-item__name">Next.js</div>
               </div>
               <div class="tech-item">
-                <div class="tech-icon"><i class="fa-solid fa-server"></i></div>
-                <div class="tech-name">NestJS</div>
+                <div class="tech-item__icon">
+                  <i class="fa-solid fa-server"></i>
+                </div>
+                <div class="tech-item__name">NestJS</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- EXPERIENCIAS -->
-      <section id="experience">
+      <!-- EXPERIÊNCIAS -->
+      <section class="section" id="experience">
         <p class="section-kicker">trajetória</p>
         <h2 class="section-title">Experiência profissional</h2>
         <p class="section-sub">
@@ -248,21 +315,21 @@
               >
             </div>
             <div class="exp-progression">
-              <div class="prog-step is-past">
+              <div class="prog-step prog-step--past">
                 <div class="prog-dot">I</div>
                 <div class="prog-info">
                   <div class="prog-label">Analista<br />Sistemas I</div>
                   <div class="prog-year">11/2016</div>
                 </div>
               </div>
-              <div class="prog-step is-past">
+              <div class="prog-step prog-step--past">
                 <div class="prog-dot">II</div>
                 <div class="prog-info">
                   <div class="prog-label">Analista<br />Sistemas II</div>
                   <div class="prog-year">05/2017</div>
                 </div>
               </div>
-              <div class="prog-step is-current">
+              <div class="prog-step prog-step--current">
                 <div class="prog-dot">III</div>
                 <div class="prog-info">
                   <div class="prog-label">Analista<br />Sistemas III</div>
@@ -290,31 +357,6 @@
           <div class="exp-item">
             <div class="exp-header">
               <div>
-                <div class="exp-role">
-                  Desenvolvedora Front-End | Analista de Sistemas
-                </div>
-                <div class="exp-company">BritoTI</div>
-              </div>
-              <span class="exp-period"
-                >02/2017 &minus; 03/2019 &middot; Remoto</span
-              >
-            </div>
-            <ul class="exp-bullets">
-              <li>
-                Desenvolvimento front-end com HTML, SCSS, JavaScript, Bootstrap
-                e Materialize
-              </li>
-              <li>
-                Integração com APIs REST e tabelas dinâmicas com DataTables
-              </li>
-              <li>Visualizações de dados com Google Charts</li>
-              <li>Desenvolvimento back-end com Laravel e modelagem MySQL</li>
-            </ul>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-header">
-              <div>
                 <div class="exp-role">Web Designer</div>
                 <div class="exp-company">Fundação João Paulo II (FJPII)</div>
               </div>
@@ -330,30 +372,6 @@
               </li>
               <li>Customização de temas e funcionalidades WordPress</li>
               <li>Manutenção de aplicações com CakePHP</li>
-            </ul>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-header">
-              <div>
-                <div class="exp-role">
-                  Desenvolvedora Front-End | Analista de Sistemas
-                </div>
-                <div class="exp-company">Blutee</div>
-              </div>
-              <span class="exp-period"
-                >05/2015 &minus; 08/2016 &middot; Remoto</span
-              >
-            </div>
-            <ul class="exp-bullets">
-              <li>
-                Desenvolvimento de websites em WordPress com foco em
-                responsividade, performance, SEO e UX
-              </li>
-              <li>
-                Customização de temas, otimização de performance e integração
-                com APIs externas
-              </li>
             </ul>
           </div>
 
@@ -403,15 +421,15 @@
       </section>
 
       <!-- PROJETOS -->
-      <section id="projects">
+      <section class="section" id="projects">
         <p class="section-kicker">portfólio</p>
         <h2 class="section-title">Projetos</h2>
         <p class="section-sub">
           Seleção de projetos desenvolvidos ao longo da carreira.
         </p>
 
-        <div class="proj-filters">
-          <button class="filter-btn active" data-filter="all">Todos</button>
+        <div class="proj-filters" role="group" aria-label="Filtrar projetos">
+          <button class="filter-btn is-active" data-filter="all">Todos</button>
           <button class="filter-btn" data-filter="Sistema">Sistemas</button>
           <button class="filter-btn" data-filter="Website">Websites</button>
           <button class="filter-btn" data-filter="Evento">Eventos</button>
@@ -563,15 +581,16 @@
             </div>
           </div>
         </div>
-        <div class="proj-notice">
+
+        <p class="proj-notice">
           Alguns projetos não estão mais disponíveis online por terem sido
           temporários, removidos pelos responsáveis ou por questões de
           privacidade.
-        </div>
+        </p>
       </section>
 
       <!-- ESTUDOS -->
-      <section id="studies">
+      <section class="section" id="studies">
         <p class="section-kicker">laboratório</p>
         <h2 class="section-title">Estudos &amp; Experimentações</h2>
         <p class="section-sub">
@@ -595,8 +614,9 @@
               class="study-link"
               href="https://github.com/brunasrbrito/sigma"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              <svg viewBox="0 0 24 24">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
                 />
@@ -608,7 +628,7 @@
       </section>
 
       <!-- FORMAÇÃO -->
-      <section id="resume">
+      <section class="section" id="resume">
         <p class="section-kicker">formação &amp; certificações</p>
         <h2 class="section-title">Currículo acadêmico</h2>
         <p class="section-sub">
@@ -619,29 +639,30 @@
         <div class="resume-two-col">
           <div>
             <div class="resume-col-title">
-              <i class="fa-solid fa-graduation-cap"></i> Formação acadêmica
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              Formação acadêmica
             </div>
             <div class="edu-timeline">
-              <div class="edu-item active">
+              <div class="edu-item edu-item--active">
                 <div class="edu-degree">
                   MBA em Engenharia e Arquitetura de Dados com IA
-                  <span class="pill pill-active">cursando</span>
+                  <span class="pill pill--active">cursando</span>
                 </div>
                 <div class="edu-school">XP Educação</div>
                 <div class="edu-period">2026 &minus; 2027</div>
               </div>
-              <div class="edu-item done">
+              <div class="edu-item edu-item--done">
                 <div class="edu-degree">
                   MBA em Design de Produtos Digitais (UX/UI)
-                  <span class="pill pill-done">concluído</span>
+                  <span class="pill pill--done">concluído</span>
                 </div>
                 <div class="edu-school">Anhanguera Educacional</div>
                 <div class="edu-period">2025</div>
               </div>
-              <div class="edu-item active">
+              <div class="edu-item edu-item--active">
                 <div class="edu-degree">
                   Bacharelado em Engenharia da Computação
-                  <span class="pill pill-active">cursando</span>
+                  <span class="pill pill--active">cursando</span>
                 </div>
                 <div class="edu-school">UNIVESP</div>
                 <div class="edu-period">2024 &minus; 2029</div>
@@ -649,7 +670,7 @@
               <div class="edu-item">
                 <div class="edu-degree">
                   MBA em Desenvolvimento de Sistemas Web e Mobile
-                  <span class="pill pill-nc">não concluído</span>
+                  <span class="pill pill--nc">não concluído</span>
                 </div>
                 <div class="edu-school">UNISAL</div>
                 <div class="edu-period">2014 &minus; 2015</div>
@@ -657,15 +678,15 @@
               <div class="edu-item">
                 <div class="edu-degree">
                   Análise e Desenvolvimento de Sistemas
-                  <span class="pill pill-nc">não concluído</span>
+                  <span class="pill pill--nc">não concluído</span>
                 </div>
                 <div class="edu-school">FATEC Guaratinguetá</div>
                 <div class="edu-period">2011 &minus; 2013</div>
               </div>
-              <div class="edu-item done">
+              <div class="edu-item edu-item--done">
                 <div class="edu-degree">
                   Bacharel em Ciência da Computação
-                  <span class="pill pill-done">concluído</span>
+                  <span class="pill pill--done">concluído</span>
                 </div>
                 <div class="edu-school">UNISAL</div>
                 <div class="edu-period">2008 &minus; 2011</div>
@@ -675,11 +696,13 @@
 
           <div>
             <div class="resume-col-title">
-              <i class="fa-solid fa-medal"></i> Certificações
+              <i class="fa-solid fa-medal" aria-hidden="true"></i> Certificações
             </div>
             <div class="cert-grid">
               <div class="cert-card">
-                <div class="cert-icon"><i class="fa-solid fa-medal"></i></div>
+                <div class="cert-icon">
+                  <i class="fa-solid fa-medal" aria-hidden="true"></i>
+                </div>
                 <div>
                   <div class="cert-name">
                     Scrum Foundation Professional Certification — SFPC&trade;
@@ -688,6 +711,7 @@
                   <a
                     href="https://profiles.badgeclaimed.com/user-181006/badges/urn:uuid:5300f631-d4b0-4094-899e-6406dfea5f3e.html"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="cert-issuer"
                     >Visualizar credencial</a
                   >
@@ -695,12 +719,13 @@
               </div>
             </div>
 
-            <div class="resume-col-title" style="margin-top: 36px">
-              <i class="fa-solid fa-handshake"></i> Voluntariado
+            <div class="resume-col-title u-mt-10">
+              <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+              Voluntariado
             </div>
             <div class="volunteer-card">
               <div class="volunteer-icon">
-                <i class="fa-solid fa-handshake"></i>
+                <i class="fa-solid fa-handshake" aria-hidden="true"></i>
               </div>
               <div>
                 <div class="volunteer-role">Auxiliar</div>
@@ -711,28 +736,29 @@
               </div>
             </div>
 
-            <div class="resume-col-title" style="margin-top: 36px">
-              <i class="fa-solid fa-earth-americas"></i> Idiomas
+            <div class="resume-col-title u-mt-10">
+              <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
+              Idiomas
             </div>
             <div class="lang-card">
-              <div class="lang-flag">🇧🇷</div>
+              <div class="lang-flag" aria-label="Brasil">🇧🇷</div>
               <div>
                 <div class="lang-name">Português</div>
                 <div class="lang-level">Nativo</div>
               </div>
-              <div class="lang-bar-wrap">
+              <div class="lang-bar-wrap" aria-label="Nível: 100%">
                 <div class="lang-bar-bg">
                   <div class="lang-bar-fill" style="width: 100%"></div>
                 </div>
               </div>
             </div>
-            <div class="lang-card" style="margin-top: 12px">
-              <div class="lang-flag">🇺🇸</div>
+            <div class="lang-card">
+              <div class="lang-flag" aria-label="Estados Unidos">🇺🇸</div>
               <div>
                 <div class="lang-name">Inglês</div>
                 <div class="lang-level">Intermediário</div>
               </div>
-              <div class="lang-bar-wrap">
+              <div class="lang-bar-wrap" aria-label="Nível: 55%">
                 <div class="lang-bar-bg">
                   <div class="lang-bar-fill" style="width: 55%"></div>
                 </div>
@@ -743,10 +769,9 @@
       </section>
 
       <footer>
-        &nbsp; &middot;&nbsp; perfil em constante evolução &nbsp; &middot;&nbsp;
+        &middot;&nbsp; perfil em constante evolução &nbsp;&middot;
       </footer>
     </main>
-
     <script type="text/javascript" src="assets/js/main.js"></script>
   </body>
 </html>
