@@ -34,8 +34,13 @@
 
   overlay.addEventListener('click', closeSidebar);
 
-
-  navLinks.forEach(link => link.addEventListener('click', closeSidebar));
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const id = link.getAttribute('href').replace('#', '');
+      setActiveNav(id);
+      closeSidebar();
+    });
+  });
 
 
   document.addEventListener('keydown', e => {
@@ -54,9 +59,14 @@
 
   const spyObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) setActiveNav(entry.target.id);
+      if (entry.isIntersecting) {
+        setActiveNav(entry.target.id);
+      }
     });
-  }, { threshold: 0.4 });
+  }, {
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  });
 
   sections.forEach(s => spyObserver.observe(s));
 
