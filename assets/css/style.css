@@ -1386,10 +1386,12 @@ footer {
   backdrop-filter: blur(2px);
   opacity: 0;
   transition: opacity var(--transition-base);
+  pointer-events: none;
 }
 
 .mob-overlay.is-visible {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* ============================================================
