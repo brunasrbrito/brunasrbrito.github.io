@@ -1,0 +1,17 @@
+@use "base/variables";
+@use "base/reset";
+
+@use "layout/sidebar";
+@use "layout/main";
+@use "layout/sections";
+@use "layout/footer";
+
+@use "components/home";
+@use "components/about";
+@use "components/experience";
+@use "components/projects";
+@use "components/studies";
+@use "components/resume";
+
+@use "utils/mobile";
+@use "utils/responsive";

@@ -1,0 +1,67 @@
+:root {
+  --clr-bg: #080c10;
+  --clr-sidebar: #0d1117;
+  --clr-surface: #111820;
+  --clr-surface-2: #18222e;
+  --clr-border: #1e2d3d;
+  --clr-accent: #e3604d;
+  --clr-accent-2: #d1c8a3;
+  --clr-text: #e2eaf4;
+  --clr-muted: #6b8399;
+  --clr-white: #ffffff;
+
+  --glow-accent: rgba(227, 96, 77, 0.18);
+  --glow-accent-2: rgba(209, 200, 163, 0.15);
+
+  --grad-accent: linear-gradient(
+    135deg,
+    var(--clr-accent),
+    var(--clr-accent-2)
+  );
+  --grad-timeline: linear-gradient(
+    180deg,
+    var(--clr-accent),
+    var(--clr-accent-2),
+    transparent
+  );
+  --grad-prog-line: linear-gradient(
+    90deg,
+    var(--clr-border),
+    var(--clr-accent),
+    var(--clr-accent-2)
+  );
+
+  --sidebar-w: 280px;
+
+  --font-body: "Outfit", sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-sm: 9px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  --transition-fast: 0.18s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  --z-sidebar: 100;
+  --z-toggle: 200;
+  --z-overlay: 90;
+
+  --bs-body-bg: var(--clr-bg);
+  --bs-body-color: var(--clr-text);
+  --bs-body-font-family: var(--font-body);
+  --bs-border-color: var(--clr-border);
+  --bs-primary: var(--clr-accent);
+  --bs-link-color: var(--clr-accent-2);
+  --bs-link-hover-color: var(--clr-accent);
+  --bs-border-radius: var(--radius-md);
+  --bs-border-radius-lg: var(--radius-lg);
+  --bs-border-radius-pill: var(--radius-pill);
+  --bs-card-bg: var(--clr-surface);
+  --bs-card-border-color: var(--clr-border);
+  --bs-card-border-radius: var(--radius-lg);
+}

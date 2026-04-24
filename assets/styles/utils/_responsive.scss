@@ -1,0 +1,55 @@
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-280px);
+    width: 280px;
+    z-index: 150;
+    max-width: 100vw;
+  }
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+  .main {
+    margin-left: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .mob-toggle {
+    display: flex;
+  }
+  .mob-overlay {
+    display: block;
+  }
+  .section {
+    padding: 64px 24px;
+    overflow-x: hidden;
+  }
+  .exp-progression {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .exp-progression::before {
+    display: none;
+  }
+  .exp-period,
+  .proj-tag,
+  .study-tag,
+  .badge-tech {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 2.2rem;
+  }
+  .home-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn-brand,
+  .btn-outline-brand {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -3,22 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Bruna Brito — Desenvolvedora Web &amp; UX/UI</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
     <meta name="theme-color" content="#e3604d" />
     <meta
       name="description"
-      content="Desenvolvedora Web especializada em front-end. Veja meus projetos"
+      content="Desenvolvedora Full Stack especializada em front-end. Veja meus projetos"
     />
     <meta
       name="keywords"
-      content="desenvolvedora web, front-end, full stack, UX UI, portfólio, programação"
+      content="desenvolvedora web, front-end, full stack, UX/UI, portfólio, programação"
     />
     <meta name="author" content="Bruna Brito" />
-
     <meta name="robots" content="index, follow" />
-
     <link rel="canonical" href="https://brunasrbrito.github.io" />
 
     <link
@@ -32,8 +29,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link
+      href="assets/plugins/bootstrap-5.3.8/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/styles/main.min.css" rel="stylesheet" />
   </head>
   <body>
     <!-- MOBILE OVERLAY -->
@@ -47,9 +47,9 @@
       aria-expanded="false"
       aria-controls="sidebar"
     >
-      <span class="mob-toggle__bar"></span>
-      <span class="mob-toggle__bar"></span>
-      <span class="mob-toggle__bar"></span>
+      <span class="mob-toggle-bar"></span>
+      <span class="mob-toggle-bar"></span>
+      <span class="mob-toggle-bar"></span>
     </button>
 
     <!-- SIDEBAR -->
@@ -59,59 +59,59 @@
       role="navigation"
       aria-label="Menu lateral"
     >
-      <div class="sidebar__avatar">
+      <div class="sidebar-avatar">
         <img src="assets/images/eu.png" alt="Foto de Bruna Brito" />
       </div>
-      <div class="sidebar__name">Bruna <em>Brito</em></div>
-      <div class="sidebar__role">Dev Web &amp; UX/UI</div>
+      <div class="sidebar-name">Bruna <em>Brito</em></div>
+      <div class="sidebar-role">Dev Web &amp; UX/UI</div>
 
-      <div class="sidebar__divider"></div>
+      <div class="sidebar-divider"></div>
 
-      <nav class="sidebar__nav">
-        <ul class="sidebar__nav-list">
+      <nav class="sidebar-nav">
+        <ul class="sidebar-nav-list">
           <li>
-            <a href="#home" class="sidebar__nav-link is-active">
-              <span class="sidebar__nav-icon"
+            <a href="#home" class="sidebar-nav-link is-active">
+              <span class="sidebar-nav-icon"
                 ><i class="fa-solid fa-house"></i
               ></span>
               Início
             </a>
           </li>
           <li>
-            <a href="#about" class="sidebar__nav-link">
-              <span class="sidebar__nav-icon"
+            <a href="#about" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon"
                 ><i class="fa-solid fa-user"></i
               ></span>
               Sobre
             </a>
           </li>
           <li>
-            <a href="#experience" class="sidebar__nav-link">
-              <span class="sidebar__nav-icon"
+            <a href="#experience" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon"
                 ><i class="fa-solid fa-briefcase"></i
               ></span>
               Experiência
             </a>
           </li>
           <li>
-            <a href="#projects" class="sidebar__nav-link">
-              <span class="sidebar__nav-icon"
+            <a href="#projects" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon"
                 ><i class="fa-solid fa-rocket"></i
               ></span>
               Projetos
             </a>
           </li>
           <li>
-            <a href="#studies" class="sidebar__nav-link">
-              <span class="sidebar__nav-icon"
+            <a href="#studies" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon"
                 ><i class="fa-solid fa-flask"></i
               ></span>
               Estudos
             </a>
           </li>
           <li>
-            <a href="#resume" class="sidebar__nav-link">
-              <span class="sidebar__nav-icon"
+            <a href="#resume" class="sidebar-nav-link">
+              <span class="sidebar-nav-icon"
                 ><i class="fa-solid fa-graduation-cap"></i
               ></span>
               Formação
@@ -120,13 +120,16 @@
         </ul>
       </nav>
 
-      <div class="sidebar__social">
+      <div class="sidebar-social">
         <a
           class="social-btn"
           href="https://www.linkedin.com/in/brunasrbrito/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="LinkedIn"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -140,6 +143,9 @@
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="GitHub"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -151,6 +157,9 @@
           class="social-btn"
           href="mailto:brunasrbrito@gmail.com"
           aria-label="Enviar e-mail"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Email"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -165,37 +174,43 @@
     <main class="main">
       <!-- HOME -->
       <section class="section" id="home">
-        <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
-        <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+        <div class="home-blob home-blob--1" aria-hidden="true"></div>
+        <div class="home-blob home-blob--2" aria-hidden="true"></div>
 
-        <h1 class="hero__title">
+        <h1 class="home-title">
           Olá, sou <em>Bruna</em><br />
-          <span class="hero__title-line2">Desenvolvedora Web &amp; UX/UI</span>
+          <span class="home-title-line2">Desenvolvedora Web &amp; UX/UI</span>
         </h1>
-        <p class="hero__desc">
+
+        <p class="home-desc">
           Desenvolvedora full stack com mais de 13 anos de experiência em
           desenvolvimento web, apaixonada por criar interfaces funcionais,
           acessíveis e visualmente refinadas. Atualmente aprofundando
           conhecimentos em Engenharia de Dados e IA.
         </p>
-        <div class="hero__badges">
-          <span class="badge">Web Development</span>
-          <span class="badge">UX / UI</span>
-          <span class="badge">Full Stack</span>
-          <span class="badge">PHP &middot; Laravel</span>
-          <span class="badge">MBA &middot; Dados &amp; IA</span>
-          <span class="badge">Scrum Foundation&trade;</span>
+
+        <!-- Badges -->
+        <div class="home-badges">
+          <span class="badge-tech">Full Stack</span>
+          <span class="badge-tech">HTML</span>
+          <span class="badge-tech">CSS &middot; Sass</span>
+          <span class="badge-tech">UX / UI</span>
+          <span class="badge-tech">PHP &middot; Laravel</span>
+          <span class="badge-tech">JavaScript &middot; Next.Js</span>
+          <span class="badge-tech">MBA &middot; Dados &amp; IA</span>
+          <span class="badge-tech">Scrum Foundation&trade;</span>
         </div>
-        <div class="hero__cta">
+
+        <div class="home-cta">
           <a
-            class="btn btn--primary"
+            class="btn-brand"
             href="assets/CURRICULUM - Bruna S R Brito.pdf"
             target="_blank"
           >
             <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
             Baixar currículo
           </a>
-          <a class="btn btn--secondary" href="#experience">
+          <a class="btn-outline-brand" href="#experience">
             Ver experiência &nbsp;<i
               class="fa-solid fa-arrow-right-long"
               aria-hidden="true"
@@ -213,81 +228,103 @@
           qualidade técnica com uma boa experiência de uso.
         </p>
 
-        <div class="about-grid">
-          <div class="info-card info-card--full">
-            <div class="info-card__label">Stack principal</div>
-            <div class="tech-wrap">
+        <div class="info-card">
+          <div class="info-card-label">Stack principal</div>
+          <div class="row g-3 mt-2">
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-solid fa-globe"></i>
                 </div>
-                <div class="tech-item__name">HTML / CSS</div>
+                <div class="tech-item-name">HTML / CSS</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-brands fa-js"></i>
                 </div>
-                <div class="tech-item__name">JavaScript</div>
+                <div class="tech-item-name">JavaScript</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-brands fa-bootstrap"></i>
                 </div>
-                <div class="tech-item__name">Bootstrap</div>
+                <div class="tech-item-name">Bootstrap</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-brands fa-sass"></i>
                 </div>
-                <div class="tech-item__name">SCSS</div>
+                <div class="tech-item-name">SCSS</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-brands fa-php"></i>
                 </div>
-                <div class="tech-item__name">PHP &middot; Laravel</div>
+                <div class="tech-item-name">PHP &middot; Laravel</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-solid fa-database"></i>
                 </div>
-                <div class="tech-item__name">MySQL</div>
+                <div class="tech-item-name">MySQL</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-solid fa-table"></i>
                 </div>
-                <div class="tech-item__name">DataTables</div>
+                <div class="tech-item-name">DataTables</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-solid fa-chart-line"></i>
                 </div>
-                <div class="tech-item__name">Google Charts</div>
+                <div class="tech-item-name">Google Charts</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-solid fa-plug"></i>
                 </div>
-                <div class="tech-item__name">REST APIs</div>
+                <div class="tech-item-name">REST APIs</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-brands fa-wordpress"></i>
                 </div>
-                <div class="tech-item__name">WordPress</div>
+                <div class="tech-item-name">WordPress</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-brands fa-react"></i>
                 </div>
-                <div class="tech-item__name">Next.js</div>
+                <div class="tech-item-name">Next.js</div>
               </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
               <div class="tech-item">
-                <div class="tech-item__icon">
+                <div class="tech-item-icon">
                   <i class="fa-solid fa-server"></i>
                 </div>
-                <div class="tech-item__name">NestJS</div>
+                <div class="tech-item-name">NestJS</div>
               </div>
             </div>
           </div>
@@ -304,8 +341,11 @@
         </p>
 
         <div class="exp-timeline">
+          <!-- ASM -->
           <div class="exp-item">
-            <div class="exp-header">
+            <div
+              class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-2"
+            >
               <div>
                 <div class="exp-role">Analista de Sistemas</div>
                 <div class="exp-company">Applied Scientific Methods (ASM)</div>
@@ -314,6 +354,7 @@
                 >11/2016 &minus; Atual &middot; Remoto</span
               >
             </div>
+
             <div class="exp-progression">
               <div class="prog-step prog-step--past">
                 <div class="prog-dot">I</div>
@@ -337,6 +378,7 @@
                 </div>
               </div>
             </div>
+
             <ul class="exp-bullets">
               <li>
                 Desenvolvimento, manutenção e melhoria de aplicações web (HTML,
@@ -354,8 +396,11 @@
             </ul>
           </div>
 
+          <!-- FJPII -->
           <div class="exp-item">
-            <div class="exp-header">
+            <div
+              class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-2"
+            >
               <div>
                 <div class="exp-role">Web Designer</div>
                 <div class="exp-company">Fundação João Paulo II (FJPII)</div>
@@ -375,8 +420,11 @@
             </ul>
           </div>
 
+          <!-- EXLA -->
           <div class="exp-item">
-            <div class="exp-header">
+            <div
+              class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-2"
+            >
               <div>
                 <div class="exp-role">Programadora de Interface</div>
                 <div class="exp-company">EXLA</div>
@@ -397,8 +445,11 @@
             </ul>
           </div>
 
+          <!-- INPE -->
           <div class="exp-item">
-            <div class="exp-header">
+            <div
+              class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-2"
+            >
               <div>
                 <div class="exp-role">Estágio em Informática</div>
                 <div class="exp-company">
@@ -437,147 +488,200 @@
           <button class="filter-btn" data-filter="Mobile">Mobile</button>
         </div>
 
-        <div class="proj-grid" id="proj-grid">
-          <div class="proj-card" data-type="Sistema">
-            <span class="proj-tag">Sistema</span>
-            <div class="proj-name">GestaoSW</div>
-            <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">
-              Sistema de gestão documental integrado ao controle de cursos e
-              treinamentos.
+        <div class="row g-3" id="proj-grid">
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Sistema">
+            <div class="proj-card">
+              <span class="proj-tag">Sistema</span>
+              <div class="proj-name">GestaoSW</div>
+              <div class="proj-company">Autônomo</div>
+              <div class="proj-desc">
+                Sistema de gestão documental integrado ao controle de cursos e
+                treinamentos.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Sistema">
-            <span class="proj-tag">Sistema</span>
-            <div class="proj-name">Osys</div>
-            <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">
-              Sistema para gerenciamento e controle de ordens de serviço.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Sistema">
+            <div class="proj-card">
+              <span class="proj-tag">Sistema</span>
+              <div class="proj-name">Osys</div>
+              <div class="proj-company">Autônomo</div>
+              <div class="proj-desc">
+                Sistema para gerenciamento e controle de ordens de serviço.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Website">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">GilsonTur</div>
-            <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">
-              Website para agência de turismo com foco em apresentação de
-              destinos e captação de clientes.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Website">
+            <div class="proj-card">
+              <span class="proj-tag">Website</span>
+              <div class="proj-name">GilsonTur</div>
+              <div class="proj-company">Autônomo</div>
+              <div class="proj-desc">
+                Website para agência de turismo com foco em apresentação de
+                destinos e captação de clientes.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Website">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">Penedo Riders</div>
-            <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">
-              Desenvolvimento do site oficial do grupo Penedo Riders.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Website">
+            <div class="proj-card">
+              <span class="proj-tag">Website</span>
+              <div class="proj-name">Penedo Riders</div>
+              <div class="proj-company">Autônomo</div>
+              <div class="proj-desc">
+                Desenvolvimento do site oficial do grupo Penedo Riders.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Evento">
-            <span class="proj-tag">Evento</span>
-            <div class="proj-name">6º Encontro Internacional Penedo Riders</div>
-            <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">
-              Website do 6º Encontro Internacional, focado na divulgação e
-              centralização de informações para participantes.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Evento">
+            <div class="proj-card">
+              <span class="proj-tag">Evento</span>
+              <div class="proj-name">
+                6º Encontro Internacional Penedo Riders
+              </div>
+              <div class="proj-company">Autônomo</div>
+              <div class="proj-desc">
+                Website do 6º Encontro Internacional, focado na divulgação e
+                centralização de informações para participantes.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Evento">
-            <span class="proj-tag">Evento</span>
-            <div class="proj-name">7º Encontro Internacional Penedo Riders</div>
-            <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">
-              Website do 7º Encontro Internacional, focado na divulgação e
-              centralização de informações para participantes.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Evento">
+            <div class="proj-card">
+              <span class="proj-tag">Evento</span>
+              <div class="proj-name">
+                7º Encontro Internacional Penedo Riders
+              </div>
+              <div class="proj-company">Autônomo</div>
+              <div class="proj-desc">
+                Website do 7º Encontro Internacional, focado na divulgação e
+                centralização de informações para participantes.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Website">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">Site da EXLA</div>
-            <div class="proj-company">EXLA — Software Estratégico</div>
-            <div class="proj-desc">
-              Website institucional com foco na apresentação de serviços e
-              presença digital.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Website">
+            <div class="proj-card">
+              <span class="proj-tag">Website</span>
+              <div class="proj-name">Site da EXLA</div>
+              <div class="proj-company">EXLA — Software Estratégico</div>
+              <div class="proj-desc">
+                Website institucional com foco na apresentação de serviços e
+                presença digital.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Sistema">
-            <span class="proj-tag">Sistema</span>
-            <div class="proj-name">Leasing</div>
-            <div class="proj-company">EXLA — Software Estratégico</div>
-            <div class="proj-desc">
-              Sistema de gestão de arrecadação de leasing com controle
-              financeiro e acompanhamento de contratos.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Sistema">
+            <div class="proj-card">
+              <span class="proj-tag">Sistema</span>
+              <div class="proj-name">Leasing</div>
+              <div class="proj-company">EXLA — Software Estratégico</div>
+              <div class="proj-desc">
+                Sistema de gestão de arrecadação de leasing com controle
+                financeiro e acompanhamento de contratos.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="CRM">
-            <span class="proj-tag">CRM</span>
-            <div class="proj-name">CRM — Lance</div>
-            <div class="proj-company">EXLA — Software Estratégico</div>
-            <div class="proj-desc">
-              Sistema CRM customizado para gestão de clientes e processos
-              comerciais.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="CRM">
+            <div class="proj-card">
+              <span class="proj-tag">CRM</span>
+              <div class="proj-name">CRM — Lance</div>
+              <div class="proj-company">EXLA — Software Estratégico</div>
+              <div class="proj-desc">
+                Sistema CRM customizado para gestão de clientes e processos
+                comerciais.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Sistema">
-            <span class="proj-tag">Sistema</span>
-            <div class="proj-name">TOT — Administração Escolar</div>
-            <div class="proj-company">EXLA — Software Estratégico</div>
-            <div class="proj-desc">
-              Sistema de gestão da vida escolar do munícipe com acompanhamento
-              da trajetória acadêmica.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Sistema">
+            <div class="proj-card">
+              <span class="proj-tag">Sistema</span>
+              <div class="proj-name">TOT — Administração Escolar</div>
+              <div class="proj-company">EXLA — Software Estratégico</div>
+              <div class="proj-desc">
+                Sistema de gestão da vida escolar do munícipe com acompanhamento
+                da trajetória acadêmica.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Mobile">
-            <span class="proj-tag">Mobile</span>
-            <div class="proj-name">TOT — Mobile</div>
-            <div class="proj-company">EXLA — Software Estratégico</div>
-            <div class="proj-desc">
-              Aplicação mobile para gestão da vida do munícipe, centralizando
-              serviços e informações.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Mobile">
+            <div class="proj-card">
+              <span class="proj-tag">Mobile</span>
+              <div class="proj-name">TOT — Mobile</div>
+              <div class="proj-company">EXLA — Software Estratégico</div>
+              <div class="proj-desc">
+                Aplicação mobile para gestão da vida do munícipe, centralizando
+                serviços e informações.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Website">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">Hypne</div>
-            <div class="proj-company">Applied Scientific Methods</div>
-            <div class="proj-desc">
-              Manutenção evolutiva do website com implementação de melhorias
-              contínuas.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Website">
+            <div class="proj-card">
+              <span class="proj-tag">Website</span>
+              <div class="proj-name">Hypne</div>
+              <div class="proj-company">Applied Scientific Methods</div>
+              <div class="proj-desc">
+                Manutenção evolutiva do website com implementação de melhorias
+                contínuas.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Website">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">Macro Engenharia</div>
-            <div class="proj-company">Applied Scientific Methods</div>
-            <div class="proj-desc">
-              Website institucional com foco em apresentação de serviços e
-              presença digital.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Website">
+            <div class="proj-card">
+              <span class="proj-tag">Website</span>
+              <div class="proj-name">Macro Engenharia</div>
+              <div class="proj-company">Applied Scientific Methods</div>
+              <div class="proj-desc">
+                Website institucional com foco em apresentação de serviços e
+                presença digital.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Website">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">Safety World</div>
-            <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">
-              Reformulação de website institucional com foco em modernização e
-              usabilidade.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Website">
+            <div class="proj-card">
+              <span class="proj-tag">Website</span>
+              <div class="proj-name">Safety World</div>
+              <div class="proj-company">Autônomo</div>
+              <div class="proj-desc">
+                Reformulação de website institucional com foco em modernização e
+                usabilidade.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Website">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">Website do Artista &middot; Canção Nova</div>
-            <div class="proj-company">Fundação João Paulo II</div>
-            <div class="proj-desc">
-              Reformulação da página de artistas com foco em usabilidade e
-              organização de conteúdo.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Website">
+            <div class="proj-card">
+              <span class="proj-tag">Website</span>
+              <div class="proj-name">
+                Website do Artista &middot; Canção Nova
+              </div>
+              <div class="proj-company">Fundação João Paulo II</div>
+              <div class="proj-desc">
+                Reformulação da página de artistas com foco em usabilidade e
+                organização de conteúdo.
+              </div>
             </div>
           </div>
-          <div class="proj-card" data-type="Website">
-            <span class="proj-tag">Website</span>
-            <div class="proj-name">Blutee</div>
-            <div class="proj-company">Autônomo</div>
-            <div class="proj-desc">
-              Website institucional com foco em apresentação de serviços e
-              presença digital.
+
+          <div class="col-12 col-sm-6 col-lg-4" data-type="Website">
+            <div class="proj-card">
+              <span class="proj-tag">Website</span>
+              <div class="proj-name">Blutee</div>
+              <div class="proj-company">Autônomo</div>
+              <div class="proj-desc">
+                Website institucional com foco em apresentação de serviços e
+                presença digital.
+              </div>
             </div>
           </div>
         </div>
@@ -597,32 +701,34 @@
           Projetos pessoais desenvolvidos para praticar novas tecnologias.
         </p>
 
-        <div class="study-grid">
-          <div class="study-card">
-            <span class="study-tag">Sistema</span>
-            <div class="study-name">Sigma</div>
-            <div class="study-desc">
-              Sistema de gerenciamento para madeireira como projeto de estudo,
-              focado na organização de processos e controle operacional.
+        <div class="row g-3">
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="study-card">
+              <span class="study-tag">Sistema</span>
+              <div class="study-name">Sigma</div>
+              <div class="study-desc">
+                Sistema de gerenciamento para madeireira como projeto de estudo,
+                focado na organização de processos e controle operacional.
+              </div>
+              <div class="study-techs">
+                <span class="study-pill">Next.js</span>
+                <span class="study-pill">NestJS</span>
+                <span class="study-pill">MySQL</span>
+              </div>
+              <a
+                class="study-link"
+                href="https://github.com/brunasrbrito/sigma"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                  />
+                </svg>
+                github.com/brunasrbrito/sigma
+              </a>
             </div>
-            <div class="study-techs">
-              <span class="study-pill">Next.js</span>
-              <span class="study-pill">NestJS</span>
-              <span class="study-pill">MySQL</span>
-            </div>
-            <a
-              class="study-link"
-              href="https://github.com/brunasrbrito/sigma"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                />
-              </svg>
-              github.com/brunasrbrito/sigma
-            </a>
           </div>
         </div>
       </section>
@@ -636,8 +742,9 @@
           da trajetória.
         </p>
 
-        <div class="resume-two-col">
-          <div>
+        <div class="row g-5">
+          <!-- Formação Acadêmica -->
+          <div class="col-12 col-lg-6">
             <div class="resume-col-title">
               <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
               Formação acadêmica
@@ -694,11 +801,13 @@
             </div>
           </div>
 
-          <div>
+          <!-- Certificações / Voluntariado / Idiomas -->
+          <div class="col-12 col-lg-6">
             <div class="resume-col-title">
               <i class="fa-solid fa-medal" aria-hidden="true"></i> Certificações
             </div>
-            <div class="cert-grid">
+
+            <div class="d-flex flex-column gap-3">
               <div class="cert-card">
                 <div class="cert-icon">
                   <i class="fa-solid fa-medal" aria-hidden="true"></i>
@@ -719,7 +828,7 @@
               </div>
             </div>
 
-            <div class="resume-col-title u-mt-10">
+            <div class="resume-col-title mt-5">
               <i class="fa-solid fa-handshake" aria-hidden="true"></i>
               Voluntariado
             </div>
@@ -736,10 +845,11 @@
               </div>
             </div>
 
-            <div class="resume-col-title u-mt-10">
+            <div class="resume-col-title mt-5">
               <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
               Idiomas
             </div>
+
             <div class="lang-card">
               <div class="lang-flag" aria-label="Brasil">🇧🇷</div>
               <div>
@@ -747,11 +857,12 @@
                 <div class="lang-level">Nativo</div>
               </div>
               <div class="lang-bar-wrap" aria-label="Nível: 100%">
-                <div class="lang-bar-bg">
-                  <div class="lang-bar-fill" style="width: 100%"></div>
+                <div class="lang-progress">
+                  <div class="lang-progress-bar" style="width: 100%"></div>
                 </div>
               </div>
             </div>
+
             <div class="lang-card">
               <div class="lang-flag" aria-label="Estados Unidos">🇺🇸</div>
               <div>
@@ -759,8 +870,8 @@
                 <div class="lang-level">Intermediário</div>
               </div>
               <div class="lang-bar-wrap" aria-label="Nível: 55%">
-                <div class="lang-bar-bg">
-                  <div class="lang-bar-fill" style="width: 55%"></div>
+                <div class="lang-progress">
+                  <div class="lang-progress-bar" style="width: 55%"></div>
                 </div>
               </div>
             </div>
@@ -772,6 +883,8 @@
         &middot;&nbsp; perfil em constante evolução &nbsp;&middot;
       </footer>
     </main>
+
+    <script src="assets/plugins/bootstrap-5.3.8/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
   </body>
 </html>
